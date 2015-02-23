@@ -157,13 +157,13 @@ Given a description of the airport, incoming flights and outgoing flights: how m
 
 \subsection{Explanation of}
 \subsubsection{KLM}
-The "Money" property is the amount of money KLM has in this model. 
+The "Money" property is the amount of money KLM has in this model.
 
 \subsubsection{N on N relations of employees, escorts and maintainers}
-These are very loose relations. In words this whould be: some employees are escorts and some employees are maintainers. 
+These are very loose relations. In words this whould be: some employees are escorts and some employees are maintainers.
 
 \subsubsection{Time}
-There two values that are described in the unit "euro's/time". This time is not a predetermined value, because we do not yet know in what timeframe we whould like to pay them. 
+There two values that are described in the unit "euro's/time". This time is not a predetermined value, because we do not yet know in what timeframe we whould like to pay them.
 
 \subsubsection{Money}
 As one can see, all of the quantities are eigher usable to determine the eventual amount of money or are already quantified in money.
@@ -201,8 +201,27 @@ As one can see, all of the quantities are eigher usable to determine the eventua
 \item[Role:] To be chosen
 \end{description}
 \subsection{Escorts}
+\begin{Description}
+\item[Property]Speed
+\item[Unit]m/s
+\item[Role]Constant
+\end{Description}
 \subsection{Wheelchairs}
+\begin{Description}
+\item[Property]Cost and maintenance cost
+\item[Unit]Euros
+\item[Role]Constant
+
+\item[Property]Decrease in value
+\item[Unit]Euros/time
+\item[Role]Constant
+\end{Description}
 \subsection{Wheelchair maintainers}
+\begin{Description}
+\item[Property]Wheelchairs they can maintain
+\item[Unit]Integer
+\item[Role]Constant
+\end{Description}
 
 \section{Approximations and assumptions}
 \section{Derivations}
