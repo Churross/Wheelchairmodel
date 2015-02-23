@@ -2,6 +2,7 @@
 
 \usepackage{amsfonts} % if you want blackboard bold symbols e.g. for real numbers
 \usepackage{graphicx} % if you want to include jpeg or pdf pictures
+%whollaah
 \setcounter{secnumdepth}{5}
 
 \title{{\Huge Modelling Project} \vspace{300pt}} % change this
@@ -19,23 +20,23 @@ Supervised by: I. Papaliouras  % change this
 \end{center}
 \thispagestyle{empty}
 \newpage
-% \section*{Acknowledgement of Sources} % this must be included in undergradate projects
-% For all ideas taken from other sources (books, articles, internet), the source of the ideas is mentioned in the main text and fully referenced at the end of the report.
+\section*{Acknowledgement of Sources} % this must be included in undergradate projects
+For all ideas taken from other sources (books, articles, internet), the source of the ideas is mentioned in the main text and fully referenced at the end of the report.
 
-% All material which is quoted essentially word-for-word from other sources is given in quotation marks and referenced.
+All material which is quoted essentially word-for-word from other sources is given in quotation marks and referenced.
 
-% Pictures and diagrams copied from the internet or other sources are labelled with a reference to the web page or book, article etc.
-% \\[12pt]
-% Signed \dotfill Date \dotfill
+Pictures and diagrams copied from the internet or other sources are labelled with a reference to the web page or book, article etc.
+\\[12pt]
+Signed \dotfill Date \dotfill
 
 \tableofcontents
 
 %%%%%%%%%% MAIN TEXT STARTS HERE %%%%%%%%%%
 
 %%%%%%%%%% SAMPLE CHAPTER %%%%%%%%%%
-% \chapter{Summary}
+\chapter{Summary}
 
-% \chapter{Description of modeling process}
+\chapter{Description of modeling process}
 
 %first deadline
 \chapter{Definition phase}
@@ -152,97 +153,83 @@ Given a description of the airport, incoming flights and outgoing flights: how m
 \chapter{Conceptualization phase}
 \section{Concepts, properties,values and relations}
 
-\subsection{The model}
 \includegraphics[scale=0.5]{Conceptualmodel.pdf}
 
-\subsection{Explanation of}
-\subsubsection{KLM}
-The "Money" property is the amount of money KLM has in this model. 
-
-\subsubsection{N on N relations of employees, escorts and maintainers}
-These are very loose relations. In words this whould be: some employees are escorts and some employees are maintainers. 
-
-\subsubsection{Time}
-There two values that are described in the unit "euro's/time". This time is not a predetermined value, because we do not yet know in what timeframe we whould like to pay them. 
-
-\subsubsection{Money}
-As one can see, all of the quantities are eigher usable to determine the eventual amount of money or are already quantified in money.
-
 %second deadline:
-% \chapter{Formalization phase}
-% \section{Quantities and their relationships}
-% \section{Approximations and assumptions}
-% \section{Derivations}
-% \section{Special cases}
-% \section{Estimates}
+\chapter{Formalization phase}
+\section{Quantities and their relationships}
+\section{Approximations and assumptions}
+\section{Derivations}
+\section{Special cases}
+\section{Estimates}
 
-% \chapter{Execution phase}
-% \section{Rephrased problem in formal terms}
+\chapter{Execution phase}
+\section{Rephrased problem in formal terms}
 
 %third deadline
-% \section{Calculation, implementation and simulation}
-% \section{Validation and verification; accuracy and precision}
+\section{Calculation, implementation and simulation}
+\section{Validation and verification; accuracy and precision}
 
-% \chapter{Conclusion phase}
-% \section{Presentation and interpretation}
+\chapter{Conclusion phase}
+\section{Presentation and interpretation}
 
-% \chapter{Reflection and discussion}
-% \section{Discussion after the conceptual model}
-% \section{Discussion after the formal model}
-% \section{Discussion after the result}
-% \section{Discussion after the solution of the initial problem}
+\chapter{Reflection and discussion}
+\section{Discussion after the conceptual model}
+\section{Discussion after the formal model}
+\section{Discussion after the result}
+\section{Discussion after the solution of the initial problem}
 
-%%%%%%%%% INFORMATION %%%%%%%%%%
-% \section{A Note About References}
+%%%%%%%%%% INFORMATION %%%%%%%%%%
+\section{A Note About References}
+%
+The Third and Fourth Year Handbook, and the Third and Fourth Year Project Handbook, have some clear guidelines about plagiarism and referencing.
+You should consult your project supervisor about the correct format for handling references.
 
-% The Third and Fourth Year Handbook, and the Third and Fourth Year Project Handbook, have some clear guidelines about plagiarism and referencing.
-% You should consult your project supervisor about the correct format for handling references.
+This document uses the `in-text' or Harvard system of referencing, which is a good default format.
+This requires both in-text citations and a list of references at the end of the document.
+The project templates have an example of a list of references.
 
-% This document uses the `in-text' or Harvard system of referencing, which is a good default format.
-% This requires both in-text citations and a list of references at the end of the document.
-% The project templates have an example of a list of references.
+Within the text you must cite the authors surname(s) and the date of publication.
+When referring to a specific idea, or a direct quote, you must also give the page number.
+If there are two authors, use `and' and if there are more, use `et al.'\ and give all the authors names at the end.
 
-% Within the text you must cite the authors surname(s) and the date of publication.
-% When referring to a specific idea, or a direct quote, you must also give the page number.
-% If there are two authors, use `and' and if there are more, use `et al.'\ and give all the authors names at the end.
+There are two styles of citation, implicit and explicit.
+Both are equally acceptable and it is also acceptable to mix and match.
 
-% There are two styles of citation, implicit and explicit.
-% Both are equally acceptable and it is also acceptable to mix and match.
+\subsubsection{Examples of implicit in-text citations}
+%
+The sum of convex functions is itself convex (Blacke, 1985) and therefore any minimiser of this objective function will be a global minimiser (Greene and Whit, 1995, p.123). It is possible to exploit this fact (Browne et al., 2005) to enhance the optimisation algorithm.
 
-% \subsubsection{Examples of implicit in-text citations}
+\subsubsection{Examples of explicit in-text citations}
+%
+Blacke (1985) first proved that a sum of convex functions is convex. Any minimiser of this objective function will be a global minimiser, a fact shown by Greene and Whit (1995, p.123) and exploited by Browne et al.\ (2005) to enhance the optimisation algorithm.
 
-% The sum of convex functions is itself convex (Blacke, 1985) and therefore any minimiser of this objective function will be a global minimiser (Greene and Whit, 1995, p.123). It is possible to exploit this fact (Browne et al., 2005) to enhance the optimisation algorithm.
+%%%%%%%%%% APPENDIX %%%%%%%%%%
+\appendix
+\chapter{An Appendix may not be necessary}
+%
+Text introducing the/this appendix.
 
-% \subsubsection{Examples of explicit in-text citations}
+\section{Appendix section}
+%
+Text of this section.
 
-% Blacke (1985) first proved that a sum of convex functions is convex. Any minimiser of this objective function will be a global minimiser, a fact shown by Greene and Whit (1995, p.123) and exploited by Browne et al.\ (2005) to enhance the optimisation algorithm.
+subsubsections and further divisions can also be used in appendices.
 
-%%%%%%%%% APPENDIX %%%%%%%%%%
-% \appendix
-% \chapter{An Appendix may not be necessary}
+%%%%%%%%%% BIBLIOGRAPHY %%%%%%%%%%
+\chapter*{Bibliography}
+%
+\begin{description}
 
-% Text introducing the/this appendix.
+\item Author, I. (Year). \emph{Book Title}, Publisher; Place of publication.
 
-% \section{Appendix section}
+\item Lamport, L. (1986), \emph{\LaTeX: A Document Preparation System}, Addison-Wesley; Reading, MA.
 
-% Text of this section.
+\item Author, I. (Year). `Journal article title', \emph{Journal}, \textbf{Vol}, pp.first--last.
 
-% subsubsections and further divisions can also be used in appendices.
+\item Smith, A.D.A.C. and Wand, M.P. (2008). `Streamlined variance calculations for semiparametric
+mixed models', \emph{Statistics in Medicine}, \textbf{27}, pp.435--48.
 
-%%%%%%%%% BIBLIOGRAPHY %%%%%%%%%%
-% \chapter*{Bibliography}
-
-% \begin{description}
-
-% \item Author, I. (Year). \emph{Book Title}, Publisher; Place of publication.
-
-% \item Lamport, L. (1986), \emph{\LaTeX: A Document Preparation System}, Addison-Wesley; Reading, MA.
-
-% \item Author, I. (Year). `Journal article title', \emph{Journal}, \textbf{Vol}, pp.first--last.
-
-% \item Smith, A.D.A.C. and Wand, M.P. (2008). `Streamlined variance calculations for semiparametric
-% mixed models', \emph{Statistics in Medicine}, \textbf{27}, pp.435--48.
-
-% \end{description}
+\end{description}
 
 \end{document}
