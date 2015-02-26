@@ -279,6 +279,14 @@ As one can see, all of the quantities are either usable to determine the eventua
 	\end{description}
 
 \section{Approximations and assumptions}
+
+    \subsection{Approximations}
+        \subsubsection{Speed of the escorts}
+        In real life the escorts probably won't move at a constant speed. Making a turn it will be slower than walking in a straight line. How crowded it is at the airport also effects the walking speed, since you can't move at full speed when it is really crowded. However, to take all of this into account our actual model would be really hard. Therefore we let the escorts in our model move at a constant speed over a certain distance.
+
+        \subsubsection{Distance between gates}
+        The distance the escorts walk between the gates depends on the exact path they take. This path is different every time, because it depends on the number of people at the airport. On a busy day, the escorts have to go left and right to go around the people. This increases the travelled distance. This is impossible to keep in mind when creating the model. Therefore the distance between two gates is a constant value.
+
 \section{Derivations}
 \section{Special cases}
 \section{Estimates}
