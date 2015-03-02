@@ -1,0 +1,20 @@
+
+Takenlijst:
+
+Rollen quantiteiten, cat1/2/3/4 van illias				<---Youri
+creeer twee cat2 waardes, hoeven niet gequantificeerd te worden
+
+Hoofdformules opstellen --> domeinen!				<---Yoram
+Afgeleides en afgeleide functies van deze functies
+Verklaring voor de functies
+
+Special cases						<---Martijn
+	einde domeinen, nulwaardes enz
+	
+Schattingen --> zoals loopsnelheid enz.			<---Chiel
+Argumentatie schattingen
+
+Rephrase van de hoofdvraag in wiskundige termen		<---Bram
+
+
+VOOR WOENSDAG
