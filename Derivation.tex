@@ -1,0 +1,29 @@
+\documentclass[a4paper, 12pt, notitlepage]{report}
+\begin{document}
+
+\begin{description}
+	\item $Costs = CostEscorts + CostMaintainers + CostMaintanance + CostDecrease$
+	\item $CostEscorts = Salary * NrEscorts$
+	\item $CostMaintainers = Salary * NrMaintainers$
+	\item $CostMaintanance = 1/2 * CostDecrease $ if it is more then this, you should seriously consider replacing it.
+	\item 
+	\item $Costs = Salary * NrEscorts + Salary * NrMaintainers + 3/2* CostDecrease$
+	\item $2*distance*NrDisablerd= TotalDistance$
+	\item $Vescort*TimeBetweenFlights = TotalDistance1Escort $
+	\item $NrEscorts = TotalDistance/TotalDistance1Escort = 2*distance*NrDisablerd/(Vescort*TimeBetweenFlights)$
+	\item 
+	\item $NrMaintainers = NrWheelchairs/WheelchairsPerMaintainer$
+	\item $NrWheelchars = NrEscorts$ since every escort has his own wheelchair
+	\item $NrMaintainers = NrEscorts/WheelchairsPerMaintainer$
+	\item 
+	\item $CostDecrease  = CostWheelchairPerSecond * TimeBetweenFlights * NrEscorts$
+	\item $CostWheelchairPerSecond = TotalCostWheelchair/TimeTillDestruction$ which we can find on the internet
+	\item $CostDecrease  = TimeBetweenFlights * NrEscorts * TotalCostWheelchair/TimeTillDestruction$
+	\item 
+	\item $Costs = Salary * NrEscorts + Salary * NrEscorts/WheelchairsPerMaintainer + 3/2* TimeBetweenFlights * NrEscorts * TotalCostWheelchair/TimeTillDestruction$
+	\item $Costs = NrEscorts * (Salary + Salary/WheelchairsPerMaintainer + 3/2* TimeBetweenFlights * TotalCostWheelchair/TimeTillDestruction)$
+	\item $Costs = 2*distance*NrDisablerd/(Vescort*TimeBetweenFlights) * (Salary + Salary/WheelchairsPerMaintainer + 3/2* TimeBetweenFlights * TotalCostWheelchair/TimeTillDestruction)$
+	\item 
+\end{description}
+
+\end{document}
