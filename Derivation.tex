@@ -3,36 +3,26 @@
 
 \begin{description}
 	\item $Costs = CostEscorts + CostMaintainers + CostMaintanance + CostDecrease$
-	\item[Explanation:] These costs come from the conceptual model. They are all the costs.
 	\item $CostEscorts = Salary * NrEscorts$
 	\item $CostMaintainers = Salary * NrMaintainers$
-	\item[Explanation:] This is basic economy. Total cost for a group of employees is, how many employees * their salary.
-	\item $CostMaintanance = \frac{CostDecrease}{2} $ if it is more then this, you should seriously consider replacing it.
-	\item[Explanation:] If the costs for repairing is more then half that it lost in value then most stores consider the vehicle total loss. Source: the garage that Yoram worked in.
+	\item $CostMaintanance = 1/2 * CostDecrease $ if it is more then this, you should seriously consider replacing it.
 	\item 
-	\item $Costs = Salary * NrEscorts + Salary * NrMaintainers + \frac{3* CostDecrease}{2}$
-	\item[Explanation:] Substituted the cost functions in our main function.
-	\item $TotalDistance = 2*distance*NrDisabled$
-	\item[Explanation:] Total distance travelled by all the escorts to get all disabled people form their gate to the new gate.
-	\item $TotalDistance1Escort = Vescort*TimeBetweenFlights$
-	\item[Explanation:] This is basic kinematics. distance = average velocity.
-	\item $NrEscorts = \frac{TotalDistance}{TotalDistance1Escort} = \frac{2*distance*NrDisabled}{(Vescort*TimeBetweenFlights)}$
-	\item
-	\item $NrMaintainers = \frac{NrWheelchairs}{WheelchairsPerMaintainer}$
-	\item $NrWheelchars = NrEscorts$
-	\item[Explanation:] Because every escorts gets his own wheelchair, the number of wheelchairs are per definition equal to the number of escorts.
-	\item $NrMaintainers = \frac{NrEscorts}{WheelchairsPerMaintainer}$
+	\item $Costs = Salary * NrEscorts + Salary * NrMaintainers + 3/2* CostDecrease$
+	\item $2*distance*NrDisablerd= TotalDistance$
+	\item $Vescort*TimeBetweenFlights = TotalDistance1Escort $
+	\item $NrEscorts = TotalDistance/TotalDistance1Escort = 2*distance*NrDisablerd/(Vescort*TimeBetweenFlights)$
+	\item 
+	\item $NrMaintainers = NrWheelchairs/WheelchairsPerMaintainer$
+	\item $NrWheelchars = NrEscorts$ since every escort has his own wheelchair
+	\item $NrMaintainers = NrEscorts/WheelchairsPerMaintainer$
 	\item 
 	\item $CostDecrease  = CostWheelchairPerSecond * TimeBetweenFlights * NrEscorts$
-	\item[Explanation:] It takes time to get from one gate to another. Instead of calculation the decrease in value over days, we take the decrease in value in the time between the flights. So it is the decrease of one wheelchair in that time * the amount of wheelchairs.
-	\item $CostWheelchairPerSecond = \frac{TotalCostWheelchair}{TimeTillDestruction}$ 
-	\item[Explanation:] Assumed is that the decease in value is linear. This is allowed because CostWheelchairPerSecond is really small, so there would not be a really big difference and it is not far from the exact truth. TimeTillDestruction is the time until the wheelchairs are broken by use. All these values can be found on the internet. 
-	\item $CostDecrease  = TimeBetweenFlights * NrEscorts * \frac{TotalCostWheelchair}{TimeTillDestruction}$
-	\item
-	\item $Costs = Salary * NrEscorts + Salary * \frac{NrEscorts}{WheelchairsPerMaintainer} \\ \\+ \frac{3* TimeBetweenFlights * NrEscorts * TotalCostWheelchair}{2*TimeTillDestruction}$
-	\item $Costs = NrEscorts * (Salary + \frac{Salary}{WheelchairsPerMaintainer} + \frac{3* TimeBetweenFlights * TotalCostWheelchair}{2*TimeTillDestruction}$
-	\item $Costs = \frac{2*distance*NrDisabled}{(Vescort*TimeBetweenFlights)} * \\ \\(Salary + \frac{Salary}{WheelchairsPerMaintainer} + \frac{3* TimeBetweenFlights * TotalCostWheelchair}{2*TimeTillDestruction}$
-	\item[Explanation:] Substitution gives us our final equation.
+	\item $CostWheelchairPerSecond = TotalCostWheelchair/TimeTillDestruction$ which we can find on the internet
+	\item $CostDecrease  = TimeBetweenFlights * NrEscorts * TotalCostWheelchair/TimeTillDestruction$
+	\item 
+	\item $Costs = Salary * NrEscorts + Salary * NrEscorts/WheelchairsPerMaintainer + 3/2* TimeBetweenFlights * NrEscorts * TotalCostWheelchair/TimeTillDestruction$
+	\item $Costs = NrEscorts * (Salary + Salary/WheelchairsPerMaintainer + 3/2* TimeBetweenFlights * TotalCostWheelchair/TimeTillDestruction)$
+	\item $Costs = 2*distance*NrDisablerd/(Vescort*TimeBetweenFlights) * (Salary + Salary/WheelchairsPerMaintainer + 3/2* TimeBetweenFlights * TotalCostWheelchair/TimeTillDestruction)$
 	\item   
 	%make purgy
 \end{description}

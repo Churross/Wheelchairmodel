@@ -2,7 +2,7 @@
 
 \usepackage{amsfonts} % if you want blackboard bold symbols e.g. for real numbers
 \usepackage{graphicx} % if you want to include jpeg or pdf pictures
-\usepackage{a4wide}
+\usepackage{geometry}
 \setcounter{secnumdepth}{5}
 
 \title{{\Huge Modelling Project} \vspace{290pt}} % change this
@@ -132,7 +132,7 @@ It is not entirely clear whether the model is numerical or symbolic since the mo
 \subsubsection{Material or immaterial}
 The model will be \emph{Immaterial}, because the model does not describe a real airport. There is just a concept in our mind that we project into this immaterial model. It will sort of look like modeling from scratch, but with a discrete model.
 \subsection{Conceptual definition of the problem}
-Given a description of the airport, incoming flights and departing flights: how many resources are required to get all flights of the ground with all immobile people on board?
+Given a description of the airport, incoming flights and departing flights: how many resources are required to get a flight of the ground in time with all disabled people on board?
 \section{Sub-questions}
 \begin{enumerate}
 \item How will the number of wheelchairs influence the amount of time of a transfer between two flights?
@@ -311,6 +311,23 @@ As one can see, all of the quantities are either usable to determine the eventua
 \chapter{Execution phase}
 \section{Rephrased problem in formal terms}
 
+	\subsection{Formal definition of the problem}
+	What will the minimal cost for KLM be and how many escorts, wheelchairs and wheelchair maintainers are needed for this to be achieved, given the distance between the gate of arrival and the gate of departure, the amount of time until the next flight leaves and the number of disabled people, while still getting all disabled people on board in time?
+	
+	\subsection{Explaination for the formal definition of the problem}
+	The goal of the model is to have the total cost to be as small as possible, while still getting all disabled people on board in time. To achieve this, some other values need to be calculated first. Like: 
+\begin{itemize}
+  \item How many escorts are needed?
+  \item How many wheelchairs are needed?
+  \item How many wheelchair maintainers are needed? 
+\end{itemize}
+These values can be calculated from certain constants in the model and some values which have to be entered by the user of the model. These values are:
+\begin{itemize}
+  \item The distance between the gate of arrival and the gate of departure.
+  \item The amount of time until the departing flight leaves. 
+  \item The number of disabled people.
+\end{itemize}
+Adding up all these things leads to the formal definition of the problem above.
 %second deadline:
 
 % \chapter{Formalization phase}
