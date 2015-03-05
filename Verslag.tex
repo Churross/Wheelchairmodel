@@ -307,6 +307,54 @@ As one can see, all of the quantities are either usable to determine the eventua
 		\subsubsection{Other costs} This model's puropose is to estimate and optimize the costs for helping disabled people through their transfer. There is no need to implement other costs then that. The third assumption is that the model will be influenced by these costs and that the model does not influence those costs.
 		
 \section{Derivations}
+	\subsection{Formulas}
+\begin{description}
+	\item $Costs = CostEscorts + CostMaintainers + CostMaintanance + CostDecrease$
+	\item[Explanation:] These costs come from the conceptual model. They are all the costs.
+	\item $CostEscorts = Salary * NrEscorts$
+	\item $CostMaintainers = Salary * NrMaintainers$
+	\item[Explanation:] This is basic economy. Total cost for a group of employees is, how many employees * their salary.
+	\item $CostMaintanance = \frac{CostDecrease}{2} $ if it is more then this, you should seriously consider replacing it.
+	\item[Explanation:] If the costs for repairing is more then half that it lost in value then most stores consider the vehicle total loss. Source: the garage that Yoram worked in.
+	\item 
+	\item $Costs = Salary * NrEscorts + Salary * NrMaintainers + \frac{3* CostDecrease}{2}$
+	\item[Explanation:] Substituted the cost functions in our main function.
+	\item $TotalDistance = 2*distance*NrDisabled$
+	\item[Explanation:] Total distance travelled by all the escorts to get all disabled people form their gate to the new gate.
+	\item $TotalDistance1Escort = Vescort*TimeBetweenFlights$
+	\item[Explanation:] This is basic kinematics. distance = average velocity.
+	\item $NrEscorts = \frac{TotalDistance}{TotalDistance1Escort} = \frac{2*distance*NrDisabled}{(Vescort*TimeBetweenFlights)}$
+	\item
+	\item $NrMaintainers = \frac{NrWheelchairs}{WheelchairsPerMaintainer}$
+	\item $NrWheelchars = NrEscorts$
+	\item[Explanation:] Because every escorts gets his own wheelchair, the number of wheelchairs are per definition equal to the number of escorts.
+	\item $NrMaintainers = \frac{NrEscorts}{WheelchairsPerMaintainer}$
+	\item 
+	\item $CostDecrease  = CostWheelchairPerSecond * TimeBetweenFlights * NrEscorts$
+	\item[Explanation:] It takes time to get from one gate to another. Instead of calculation the decrease in value over days, we take the decrease in value in the time between the flights. So it is the decrease of one wheelchair in that time * the amount of wheelchairs.
+	\item $CostWheelchairPerSecond = \frac{TotalCostWheelchair}{TimeTillDestruction}$ 
+	\item[Explanation:] Assumed is that the decease in value is linear. This is allowed because CostWheelchairPerSecond is really small, so there would not be a really big difference and it is not far from the exact truth. TimeTillDestruction is the time until the wheelchairs are broken by use. All these values can be found on the internet. 
+	\item $CostDecrease  = TimeBetweenFlights * NrEscorts * \frac{TotalCostWheelchair}{TimeTillDestruction}$
+	\item
+	\item $Costs = Salary * NrEscorts + Salary * \frac{NrEscorts}{WheelchairsPerMaintainer} \\ \\+ \frac{3* TimeBetweenFlights * NrEscorts * TotalCostWheelchair}{2*TimeTillDestruction}$
+	\item $Costs = NrEscorts * (Salary + \frac{Salary}{WheelchairsPerMaintainer} + \frac{3* TimeBetweenFlights * TotalCostWheelchair}{2*TimeTillDestruction}$
+	\item $Costs = \frac{2*distance*NrDisabled}{(Vescort*TimeBetweenFlights)} * \\ \\(Salary + \frac{Salary}{WheelchairsPerMaintainer} + \frac{3* TimeBetweenFlights * TotalCostWheelchair}{2*TimeTillDestruction}$
+	\item[Explanation:] Substitution gives us our final equation.
+	\item   
+	%make purgy
+\end{description}
+
+\subsection{Domains}
+	\begin{description}
+		\item[Distance] $(0,\infty)$ The distance between the flights can be as large as we want it to be, but it cannot be infinite, negative or 0. This is because the domain or TimeBetweenFlights depends on this distance and cannot be zero. Thus if we exclude 0 from the domain of the distance we prevent a division by zero error in the domain of TimeBetweenFlights.
+		\item[NrDisabled] $[0,853 ]$ The biggest passenger aircraft in the world, the Airbus A380 can fly 853 people. This becomes the upperbound to this domain, with zero disabled people as the lower bound.   %source: http://nl.wikipedia.org/wiki/Airbus_A380 oeps... wikipedia...
+		\item[Vescort] $(0,3]$ 3m/s is a really fast military pace, which is possible for some people. There is not a physical possibility to walk $0m/s$, thus this is excluded from the domain, as well as all the negative numbers. 
+		\item[TimeBetweenFlights] First compute $\frac{2*distance}{Vescort} = c$ then the domain for the time becomes $(c,\infty)$ %dynamic domain.
+		\item[Salary] $[0,\infty)$ Any non-negative number would do fine. 
+		\item[WheelchairsPerMaintainer] $(0,48)$ A typical reparation takes at least half an hour. Assuming that a maintainer works 24 hours a day. Then he can, at best, maintain 48 wheelchairs. Which is a good upper bound to this domain. This cannot be zero, because then we divide by zero.
+		\item[TotalCostWheelchair] $(0,1000)$ Most wheelchairs are about $400$ euros, so $1000$ is a nice upper bound on the cost of a wheelchair. They are never free of costs. %source?
+		\item[TimeTillDestruction] $(0,\infty)$ Cannot be zero, because of the division by zero limitation. And it has to be positive. Thus this domain comes into existance. 
+	\end{description}
 \section{Special cases}
 \section{Estimates}
     \subsection{Speed of Escorts}
