@@ -3,6 +3,7 @@
 \usepackage{amsfonts} % if you want blackboard bold symbols e.g. for real numbers
 \usepackage{graphicx} % if you want to include jpeg or pdf pictures
 \usepackage{geometry}
+\usepackage{amsmath}
 \usepackage[hidelinks]{hyperref}
 \usepackage[official]{eurosym}
 \setcounter{secnumdepth}{5}
@@ -355,13 +356,13 @@ The salary is in euro's/hour. This means the more hours are being worked, the mo
 CostEmployed = Salary * NrEmployed
 \end{equation}
 If the extremes are evaluated, then taking the limit:
-\begin{equation}
-\lim_{Salary \rightarrow 0}CostEmployed = Salary * NrEmployed = \lim_{NrEmployed \rightarrow 0}CostEmployed = Salary * NrEmployed = 0
-\end{equation}
+\begin{multline}
+\lim_{Salary \rightarrow 0}CostEmployed = Salary * NrEmployed = \lim_{NrEmployed \rightarrow 0}CostEmployed \\ = Salary * NrEmployed = 0
+\end{multline}
 So by either having no escorts or maintainers and/or no salary, there will be no costs. However this also results in no service hence this situation is not desired. On the other hand taking the limit to infinity;
-\begin{equation}
-\lim_{Salary \rightarrow \infty} CostEmployed = Salary * NrEmployed = \lim_{NrEmployed \rightarrow 0} CostEmployed = Salary * NrEmployed = \infty
-\end{equation}
+\begin{multline}
+\lim_{Salary \rightarrow \infty} CostEmployed = Salary * NrEmployed = \lim_{NrEmployed \rightarrow 0} CostEmployed \\ = Salary * NrEmployed = \infty
+\end{multline}
 This is neither desired as result for the costs. Therefore neither the salary or the number of employed should be infinite or 0.
 \begin{equation}
 \lim_{WheelChairsPerMaintainer \rightarrow 0} NrMaintainers = \frac{NrWheelchairs}{WheelchairsPerMaintainer}
