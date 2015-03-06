@@ -1,6 +1,7 @@
 \documentclass[a4paper, 12pt, notitlepage]{report}
 \begin{document}
 
+\subsection{Formulas}
 \begin{description}
 	\item $Costs = CostEscorts + CostMaintainers + CostMaintanance + CostDecrease$
 	\item[Explanation:] These costs come from the conceptual model. They are all the costs.
@@ -36,5 +37,18 @@
 	\item   
 	%make purgy
 \end{description}
+
+\subsection{Domains}
+	\begin{description}
+		\item[Distance] $(0,\infty)$ The distance between the flights can be as large as we want it to be, but it cannot be infinite, negative or 0. This is because the domain or TimeBetweenFlights depends on this distance and cannot be zero. Thus if we exclude 0 from the domain of the distance we prevent a division by zero error in the domain of TimeBetweenFlights.
+		\item[NrDisabled] $[0,853 ]$ The biggest passenger aircraft in the world, the Airbus A380 can fly 853 people. This becomes the upperbound to this domain, with zero disabled people as the lower bound.   %source: http://nl.wikipedia.org/wiki/Airbus_A380 oeps... wikipedia...
+		\item[Vescort] $(0,3]$ 3m/s is a really fast military pace, which is possible for some people. There is not a physical possibility to walk $0m/s$, thus this is excluded from the domain, as well as all the negative numbers. 
+		\item[TimeBetweenFlights] First compute $\frac{2*distance}{Vescort} = c$ then the domain for the time becomes $(c,\infty)$ %dynamic domain.
+		\item[Salary] $[0,\infty)$ Any non-negative number would do fine. 
+		\item[WheelchairsPerMaintainer] $(0,48)$ A typical reparation takes at least half an hour. Assuming that a maintainer works 24 hours a day. Then he can, at best, maintain 48 wheelchairs. Which is a good upper bound to this domain. This cannot be zero, because then we divide by zero.
+		\item[TotalCostWheelchair] $(0,1000)$ Most wheelchairs are about $400$ euros, so $1000$ is a nice upper bound on the cost of a wheelchair. They are never free of costs. %source?
+		\item[TimeTillDestruction] $(0,\infty)$ Cannot be zero, because of the division by zero limitation. And it has to be positive. Thus this domain comes into existance. 
+	\end{description}
+	
 
 \end{document}
