@@ -88,7 +88,7 @@ On the other hand, the costs should not be too high. So the people have to const
 \subsubsection{Other airline companies and other airports}
 Other airline companies and other airports also have an interest in the escort service in the following perspective. If the transfer is a transfer between two different planes of different airline companies\footnote{Only from KLM to airline company X is considered}, the other company requiers a time efficient, reliable escort service such that this plane can depart on time.\\
 In the worst case, there is little time between arrival of plane 1 and depart of plane 2. A time efficient service would be necessary to realize this. Also an estimation on when a disables person with escort arrives is pleasant to know when an escort approximately arrives. Clearly, this should be as efficient as possible and hence efficiency is also an interest.\\
-Reliability is also an interest for other airline companies and airports. Being sure when an escort arrives is necessary in order to make it possible for other airline companies to depart on time when there is a transfer with escort service. If it is uncertain if the passenger will arrive on time, it is cheaper for an airline company to let the plane depart and put the escorted person on a plane departing later than to miss the timeslot in which the plane was supposed to leave with all (worse) economic consequences as result. Therefore reliability of the escort service is also of interest for other aiports and other airline companies.
+Reliability is also an interest for other airline companies and airports. Being sure when an escort arrives is necessary in order to make it possible for other airline companies to depart on time when there is a transfer with escort service. If it is uncertain if the passenger will arrive on time, it is cheaper for an airline company to let the plane depart and put the escorted person on a plane departing later than to miss the timeslot in which the plane was supposed to leave with all (worse) economic consequences as result. Therefore reliability of the escort service is also of interest for other airports and other airline companies.
 \newpage
 \subsection{Relation between keydrivers}
 The keydrivers do also have a relation with other keydrivers than only with stakeholders. These can be summarized as follows:
@@ -298,7 +298,7 @@ As one can see, all of the quantities are either usable to determine the eventua
 		
 		\subsubsection{Infinite costs} When an airplane, in the real world, misses his timeslot, then the KLM will get fined. This fine is incredibly high. Moreover they will also be put on the blacklist. Meaning that the next time the plane arrives at an airport and there is a queue,then this plane will have to wait, at the cost of fuel and time. This second phenomena leads to the second assumption: the cost of missing the timeslot is infinite.
 		
-		\subsubsection{Other costs} This model's puropose is to estimate and optimize the costs for helping disabled people through their transfer. There is no need to implement other costs then that. The third assumption is that the model will be influenced by these costs and that the model does not influence those costs.
+		\subsubsection{Other costs} This model's purpose is to estimate and optimize the costs for helping disabled people through their transfer. There is no need to implement other costs then that. The third assumption is that the model will be influenced by these costs and that the model does not influence those costs.
 		
 \section{Derivations}
 	\subsection{Formulas}
@@ -320,7 +320,7 @@ As one can see, all of the quantities are either usable to determine the eventua
 	\item $NrEscorts = \frac{TotalDistance}{TotalDistance1Escort} = \frac{2*distance*NrDisabled}{(Vescort*TimeBetweenFlights)}$
 	\item
 	\item $NrMaintainers = \frac{NrWheelchairs}{WheelchairsPerMaintainer}$
-	\item $NrWheelchars = NrEscorts$
+	\item $NrWheelchairs = NrEscorts$
 	\item[Explanation:] Because every escorts gets his own wheelchair, the number of wheelchairs are per definition equal to the number of escorts.
 	\item $NrMaintainers = \frac{NrEscorts}{WheelchairsPerMaintainer}$
 	\item
@@ -346,7 +346,7 @@ As one can see, all of the quantities are either usable to determine the eventua
 		\item[TimeBetweenFlights] First compute $\frac{2*distance}{Vescort} = c$ then the domain for the time becomes $(c,\infty)$ %dynamic domain.
 		\item[Salary] $[0,\infty)$ Any non-negative number would do fine.
 		\item[WheelchairsPerMaintainer] $(0,48)$ A typical reparation takes at least half an hour. Assuming that a maintainer works 24 hours a day. Then he can, at best, maintain 48 wheelchairs. Which is a good upper bound to this domain. This cannot be zero, because then we divide by zero.
-		\item[TotalCostWheelchair] $(0,1000)$ Most wheelchairs are about $400$ euros, so $1000$ is a nice upper bound on the cost of a wheelchair. They are never free of costs. %source?
+		\item[TotalCostWheelchair] $(0,1000)$ Most normal wheelchairs are about $400$ euros, but sometimes a special model is needed. For example a larger wheelchair for fat people. so $1000$ is a nice upper bound on the cost of a wheelchair. They are never free of costs. %source?
 		\item[TimeTillDestruction] $(0,\infty)$ Cannot be zero, because of the division by zero limitation. And it has to be positive. Thus this domain comes into existance.
 	\end{description}
 \section{Special cases}
@@ -379,7 +379,7 @@ If there are no escorts, no people can be brought to their gate. This means eith
 \subsubsection{Infinite escorts}
 If there are infinite many escorts, that means it will cost the KLM lots of money, except if all those escorts are volunteers or if just a part of the escorts are volunteers. In either case probably every plane will leave in time, because if there are so many escorts, they can bring all the disabled persons to their gate.
 \subsubsection{No wheelchair maintainers}
-If there are no wheelchair maintainers, no wheelchair can be fixed and thus everytime a wheelchair breaks down a new one should be bought.
+If there are no wheelchair maintainers, no wheelchair can be fixed and thus every time a wheelchair breaks down a new one should be bought.
 \subsubsection{Infinite Wheelchair maintainers}
 If there are infinite wheelchair maintainers, all wheelchairs that break down can and will be fixed in time and thus no wheelchair will bought new. This does make it really expensive for KLM because they have to pay for all the salaries.
 \subsubsection{Productive working}
@@ -423,11 +423,11 @@ Totaldistance1Escort= Vescort * TimeBetweenFlights
 \subsubsection{Same gate}
 The nearest gate to drop of someone is the gate he arrives at. This means the distance is zero so no distance, so no escort is needed to push him to his gate. Even if there are a hundred disabled people, even if it is a plane full of disabled people and you have 10 transfer seconds, you still do not need any escorts, because they already are at the place they need to be.
 \subsubsection{farthest gate}
-The gate which is most distant. If you only need to take one person there, you also only need one person to push him there. If there are multiple people who need to go to the most distant gate, you will need more people. It is only possible to push one person at a time for a escort. This means that if the plane is full of disabled people, you will need 550 escorts to push all those people to the same place. If the time in which this has to be done is really small and actually not realistic, only then it is allowed to prioritize other planes and let some people wait. There is no other reason why people should have to wait.
+The gate which is most distant. If you only need to take one person there, you also only need one person to push him there. If there are multiple people who need to go to the most distant gate, you will need more people. It is only possible to push one person at a time for a escort. This means that if the plane is full of disabled people, you will need 853 escorts to push all those people to the same place. If the time in which this has to be done is really small and actually not realistic, only then it is allowed to prioritize other planes and let some people wait. There is no other reason why people should have to wait.
 \subsubsection{No disabled people}
 If there are no disabled people, no escorts are needed, so no extra money is involved in a flight.
 \subsubsection{Plane full of disabled people}
-A plane full of disabled people contains approximately 550 persons. All those persons need to be brought to the right gate. There are no mistakes allowed, else multiple planes might have a delay. So 550 escorts are needed to bring all those people to different or the same gate. If those people all need to go to different planes and some of those planes have a real high transfer time, then it is possible to use less escorts. So an escort could first take the people with an higher priority, which means that their plane leaves earlier. After they have brought the first person to their plane, they go back to the previous gate and pick up another person.
+A plane full of disabled people contains approximately 853 persons. All those persons need to be brought to the right gate. There are no mistakes allowed, else multiple planes might have a delay. So 853 escorts are needed to bring all those people to different or the same gate. If those people all need to go to different planes and some of those planes have a real high transfer time, then it is possible to use less escorts. So an escort could first take the people with an higher priority, which means that their plane leaves earlier. After they have brought the first person to their plane, they go back to the previous gate and pick up another person.
 \subsection{wheelchairs}
 Wheelchairs have two functions, one for the price and one for the devaluing of the wheelchair. What if a wheelchair is free or really expensive and what if they do not decrement or they are immediately worthless?\\
 \begin{equation}
@@ -456,16 +456,16 @@ If wheelchairs are immediately valueless after you have bought them, it is best 
     According to \href{http://work.chron.com/average-wage-wheelchair-repair-19790.html}{\emph{this (link)}} article the average salary of wheelchair maintenance is \$23.99 an hour, this is about \euro{21.39}.\\
     Since there are way less wheelchair maintainers needed compared to escorts, the estimated salary will be \euro{12,-}.
     \subsection{New price for wheelchairs}
-    New wheelchairs of acceptable quality are in a price range of \euro{275,-} to \euro{400,-}, more expensive would not be nessicary, cheaper will bring the quality to low. Since there has to be a certain ratio between quality and cost: better quality results in happier customers, and probably less maintainance and a longer lifetime, however this would cause the costs to rise. The estimate of the cost of a wheelchair with a good quality/cost ratio is \euro{340,-}
+    New wheelchairs of acceptable quality are in a price range of \euro{275,-} to \euro{400,-}, more expensive would not be necessary, cheaper will bring the quality to low. Since there has to be a certain ratio between quality and cost: better quality results in happier customers, and probably less maintenance and a longer lifetime, however this would cause the costs to rise. The estimate of the cost of a wheelchair with a good quality/cost ratio is \euro{340,-}
     \subsection{Lifetime of a wheelchair}
-    The average home use wheelchair which has a good and frequent maintainance schedule will be in service for about fifteen years. Since the wheelchairs at an airport are very intensively used it is reasonable to estimate the average lifetime of a airport wheelchair to be 7 years.
+    The average home use wheelchair which has a good and frequent maintenance schedule will be in service for about fifteen years. Since the wheelchairs at an airport are very intensively used it is reasonable to estimate the average lifetime of a airport wheelchair to be 7 years.
 \chapter{Execution phase}
 \section{Rephrased problem in formal terms}
 
 	\subsection{Formal definition of the problem}
 	What will the minimal cost for KLM be and how many escorts, wheelchairs and wheelchair maintainers are needed for this to be achieved, given the distance between the gate of arrival and the gate of departure, the amount of time until the next flight leaves and the number of disabled people, while still getting all disabled people on board in time?
 	
-	\subsection{Explaination for the formal definition of the problem}
+	\subsection{Explanation for the formal definition of the problem}
 	The goal of the model is to have the total cost to be as small as possible, while still getting all disabled people on board in time. To achieve this, some other values need to be calculated first. Like:
 \begin{itemize}
   \item How many escorts are needed?
