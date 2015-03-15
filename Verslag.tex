@@ -338,6 +338,7 @@ As one can see, all of the quantities are either usable to determine the eventua
 	%make purgy
 \end{description}
 
+
 \subsection{Domains}
 	\begin{description}
 		\item[Distance] $(0,\infty)$ The distance between the flights can be as large as we want it to be, but it cannot be infinite, negative or 0. This is because the domain or TimeBetweenFlights depends on this distance and cannot be zero. Thus if we exclude 0 from the domain of the distance we prevent a division by zero error in the domain of TimeBetweenFlights.
@@ -349,6 +350,37 @@ As one can see, all of the quantities are either usable to determine the eventua
 		\item[TotalCostWheelchair] $(0,1000)$ Most normal wheelchairs are about $400$ euros, but sometimes a special model is needed. For example a larger wheelchair for fat people. so $1000$ is a nice upper bound on the cost of a wheelchair. They are never free of costs. %source?
 		\item[TimeTillDestruction] $(0,\infty)$ Cannot be zero, because of the division by zero limitation. And it has to be positive. Thus this domain comes into existance.
 	\end{description}
+	
+	
+\subsection{Summary table}
+\begin{table}[h]
+\begin{tabular}{|l|l|l|}
+\hline
+Property                 & Unit     & Functions                                                          \\ \hline
+Cost                     & \euro    & \\CostEscorts\\+CostMaintainers\\+CostMaintanance\\+CostDecrease   \\ \hline
+CostEscorts              & \euro    & Salary * NrEscorts                                   \\ \hline
+CostMaintainers          & \euro    & Salary *NrMaintainers                         \\ \hline
+Salary                   & \euro    & SalaryPerHour * TimeBetweenFlights                          \\ \hline
+NrEscorts                & -        & TotalDistance/TotalDistance1Escort                     \\ \hline
+NrMaintainers            & -        & NrWheelchairs/WheelchairsPerMaintainer             \\ \hline
+NrWheelchairs            & -        & NrEscorts                                            \\ \hline
+CostMaintanance          & -        & CostDecrease/2                                   \\ \hline
+TotalDistance            & m        & 2* distance *NrDisabled                        \\ \hline
+TotalDistance1Escort     & m        & Vescort *TimeBetweenFlights                   \\ \hline
+NrEscorts                & -        & TotalDistance/TotalDistance1Escort                       \\ \hline
+CostDecrease             & \euro    & CostWheelchairPerHour*TimeBetweenFlights*NrEscorts \\ \hline
+CostWheelchairPerHour    & \euro /h & TotalCostWheelchair/TimeTillDestruction     \\ \hline
+                         &          &                                                                    \\ \hline
+TotalCostWheelchair      & \euro    & Slider                                                             \\ \hline
+TimeTillDestruction      & h        & Slider                                                             \\ \hline
+WheelchairsPerMaintainer & -        & Slider                                                             \\ \hline
+NrWheelchairs            & -        & Slider                                                             \\ \hline
+TimeBetweenFlights       & h        & Slider                                                             \\ \hline
+Vescort                  & km/h     & Slider                                                             \\ \hline
+NrDisabled               & -        & Slider                                                             \\ \hline
+Distance                 & km       & Slider                                                             \\ \hline
+\end{tabular}
+\end{table}
 \section{Special cases}
 \subsection{Employees and maintainers}
 The salary is in euro's/hour. This means the more hours are being worked, the more the cost for the KLM will be. Except for when the people work for free. So that they are volunteers.\\
