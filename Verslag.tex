@@ -363,7 +363,7 @@ As one can see, all of the quantities are either usable to determine the eventua
 \begin{tabular}{|l|l|l|}
 \hline
 Property                 & Unit     & Functions                                                          \\ \hline
-Cost                     & \euro    & \\CostEscorts\\+CostMaintainers\\+CostMaintanance\\+CostDecrease   \\ \hline
+Cost                      & \euro    & CostEscorts+CostMaintainers+CostMaintanance+\\CostDecrease   \\ \hline
 CostEscorts              & \euro    & Salary * NrEscorts                                   \\ \hline
 CostMaintainers          & \euro    & Salary *NrMaintainers                         \\ \hline
 Salary                   & \euro    & SalaryPerHour * TimeBetweenFlights                          \\ \hline
@@ -521,8 +521,8 @@ These values can be calculated from certain constants in the model and some valu
 Adding up all these things leads to the formal definition of the problem above.
 
 %third deadline
-<<<<<<< HEAD
-\section{Calculation, implementation and simulation}
+
+\chapter{Calculation, implementation and simulation}
     Initially, we just put the formulas that are mentioned in the derivation into Accel. We used sliders for the values:
     \begin{itemize}
     \itemsep0em
@@ -535,10 +535,9 @@ Adding up all these things leads to the formal definition of the problem above.
     \item SalaryPerHour
     \item TimeTillDestructionPerYear
     \end{itemize}
-    These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Pareto, we got the result that as long as NrDisabled, Distance or SalaryPerHour was 0, the cost is as low as possible. This is of course a situation that will never occur, so we changed the model. 
-=======
+    These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. to be 0 to create minimal solutions. Some of them (\textbf{\textit{REFERENCE}}) have been made constant
+
 % \section{Calculation, implementation and simulation}
->>>>>>> daf768bfc12d207fe7a746839e43c9553f202d12
 % \section{Validation and verification; accuracy and precision}
 
 % \chapter{Conclusion phase}
