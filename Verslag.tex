@@ -20,6 +20,8 @@
 The report on the wheelchair problem of airline companies % change this
 \\[12pt]
 Supervised by: I. Papaliouras \\ Assessor: J. Nederhof % change this
+\\[12pt]
+This document contains 3 appendices.
 \end{center}
 \thispagestyle{empty}
 \newpage
@@ -545,15 +547,25 @@ Adding up all these things leads to the formal definition of the problem above.
     \item SalaryPerHour
     \item TimeTillDestructionPerYear
     \end{itemize}
-    These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Pareto, we got the result that as long as NrDisabled, Distance or SalaryPerHour was 0, the cost is as low as possible. This is of course a situation that will never occur, so we changed the model. 
+    These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Pareto, we got the result that as long as NrDisabled, Distance or SalaryPerHour was 0, the cost is as low as possible. This is of course a situation that will never occur, so we changed the model.
 % \section{Validation and verification; accuracy and precision}
 
 % \chapter{Conclusion phase}
 % \section{Presentation and interpretation}
 
-% \chapter{Reflection and discussion}
 % \section{Discussion after the conceptual model}
-% \section{Discussion after the formal model}
+\chapter{Discussion after the formal model}
+We have chosen to use a constant value for the values of NrDisabled, distance, TimeBetweenFlights and SalaryPerHour.\\
+\section{NrDisabled}
+The number of disabled people on a flight is a constant for optimization purposes. If we optimize the model using accel the  model will always give a plane with zero disabled people as the optimal solution and because there is no control over this, we decided to make this a fixed number.
+\section{distance}
+This also has to do with optimization, since the cost go down significantly if the distance between gates goes down without huge impact on the quality, and since there is no control over this (it is not possible to move gates closer together for a few minutes and then move them back) this should not be set to zero during optimization.
+\section{TimeBetweenFlights}
+The time between flights also
+
+
+
+als constante: NrDisabled, distance, time between flights, sallary per hour.
 % \section{Discussion after the result}
 % \section{Discussion after the solution of the initial problem}
 
