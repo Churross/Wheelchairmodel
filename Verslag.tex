@@ -533,7 +533,19 @@ Adding up all these things leads to the formal definition of the problem above.
 % \section{Rephrased problem in formal terms}
 
 %third deadline
-% \section{Calculation, implementation and simulation}
+\section{Calculation, implementation and simulation}
+    Initially, we just put the formulas that are mentioned in the derivation into Accel. We used sliders for the values:
+    \begin{itemize}
+    \item NrDisabled
+    \item Distance
+    \item Vescort
+    \item TimeBetweenFlights
+    \item WheelchairsPerMaintainer
+    \item TotalCostWheelchair
+    \item SalaryPerHour
+    \item TimeTillDestructionPerYear
+    \end{itemize}
+    These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Pareto, we got the result that as long as NrDisabled, Distance or SalaryPerHour was 0, the cost is as low as possible. This is of course a situation that will never occur, so we changed the model. 
 % \section{Validation and verification; accuracy and precision}
 
 % \chapter{Conclusion phase}
