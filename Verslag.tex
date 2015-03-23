@@ -10,7 +10,7 @@
 
 \title{{\Huge Modelling Project} \vspace{290pt}} % change this
 \author{Yoram Meijaard - y.j.meijaard@student.tue.nl\\Chiel van Horssen - c.v.horssen@student.tue.nl\\Youri Haenen - y.h.b.haenen@student.tue.nl\\Bram Maas - b.j.g.maas@student.tue.nl\\Martijn Ras - n.m.j.ras@student.tue.nl} % change this
-\date{\today} % change this
+\date{Due to April 5 2015} % change this
 
 \begin{document}
 
@@ -528,7 +528,7 @@ Adding up all these things leads to the formal definition of the problem above.
     Initially, we just put the formulas that are mentioned in the derivation into Accel. We used sliders for the values:
     \begin{itemize}
     \itemsep0em
-    \item NrDisabled
+    \item\vspace{-8pt} NrDisabled
     \item Distance
     \item Vescort
     \item TimeBetweenFlights
@@ -537,13 +537,42 @@ Adding up all these things leads to the formal definition of the problem above.
     \item SalaryPerHour
     \item TimeTillDestructionPerYear
     \end{itemize}
-<<<<<<< HEAD
-    These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Pareto, we got the result that as long as NrDisabled, Distance or SalaryPerHour was 0, the cost is as low as possible. This is of course a situation that will never occur, so we changed the model.
-=======
-    These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. to be 0 to create minimal solutions. Some of them (\textbf{\textit{REFERENCE}}) have been made constant
-
+\vspace{-8pt}These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (\textbf{\textit{REFERENCE}}) have been made constant (so a category 3 property), in order to create a real life situation. 
+To retrieve an optimized solution for the model, an extra category 2 property has been added as well as two pareto functions. This added property is the quality (defined by a Pareto function) and the added Pareto functions are:
+\begin{center}
+\vspace{-4pt}$Cost=paretoHor(paretoMin(CostEscorts+CostMaintainers+$\\$CostMaintenance+CostDecrease))$
+\end{center} 
+\begin{center}
+\vspace{-8pt}$Quality=paretoVer(paretoMax(max(0,10-NrDisabled/NrEscorts)))$
+\end{center}
+\vspace{-4pt}Before the solution of the Genetic Optimization is discussed, the following graphs retrieved from analyzing the model will be analyzed.
+\begin{figure}[!h]
+\caption{The cost of function of the costs of the escort personnel}
+\includegraphics[width=0.3\textwidth]{figures/cost(CE)}
+\caption{The cost of function of the time till the wheelchairs will unusable}
+\includegraphics[width=0.3\textwidth]{figures/cost(TTD)}
+\caption{The cost of function of the time between the flights}
+\includegraphics[width=0.3\textwidth]{figures/cost(TBF)}
+\end{figure}
+Figure 16.1 is a linear function, which follows from the formula for the cost, given by 
+\begin{equation}
+Costs = CostEscorts + CostMaintainers + CostMaintanance + CostDecrease
+\end{equation}
+Assume that the other costs are constant, then there is a 1 to 1 correspondence from the costs to the cost of the cost of the personnel. Since CostEscort is also defined as a linear function (given by CostEscort = Salary $\cdot$ NrEscorts), the cost by function of the cost of the escort personnel should be linear. \\
+Figure 16.2 contains a concave up line displaying the relation between the cost and the lifespan of a wheelchair. When analyzing this function by relating the cost to the property TimeTillDestruction:
+\begin{equation}
+CostDecrease = CostWheelchairPerSecond \cdot TimeBetweenFlights*NrEscorts
+\end{equation}
+\begin{equation}
+CostWheelchairPerSecond= \frac{TotalCostWheelchair}{TimeTillDestruction}
+\end{equation}
+the following can be concluded. If CostDecrease in formula 16.1 is substituted by the above formulas, and the assumption is made that all other properties are constant, then the Cost is related to the TimeTillDestruction by:
+\begin{equation}
+Cost = \frac{c_1}{TimeTillDestruction}+ c_2
+\end{equation}
+where both $c_1$ and $c_2$ are constants. This shows that the relation is a fractional relation between the Cost and the TimeTillDesctruction which is in accordance to the concave up graph.\\
 % \section{Calculation, implementation and simulation}
->>>>>>> origin/master
+
 % \section{Validation and verification; accuracy and precision}
 
 % \chapter{Conclusion phase}
