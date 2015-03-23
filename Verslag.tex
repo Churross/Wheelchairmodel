@@ -537,6 +537,7 @@ Adding up all these things leads to the formal definition of the problem above.
     \item SalaryPerHour
     \item TimeTillDestructionPerYear
     \end{itemize}
+<<<<<<< HEAD
 \vspace{-8pt}These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (\textbf{\textit{REFERENCE}}) have been made constant (so a category 3 property), in order to create a real life situation. 
 To retrieve an optimized solution for the model, an extra category 2 property has been added as well as two pareto functions. This added property is the quality (defined by a Pareto function) and the added Pareto functions are:
 \begin{center}
@@ -574,11 +575,50 @@ where both $c_1$ and $c_2$ are constants. This shows that the relation is a frac
 % \section{Calculation, implementation and simulation}
 
 % \section{Validation and verification; accuracy and precision}
+=======
 
+    These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Pareto, we got the result that as long as NrDisabled, Distance or SalaryPerHour was 0, the cost is as low as possible. This is of course a situation that will never occur, so we changed the model.
+
+    These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. to be 0 to create minimal solutions. Some of them (\textbf{\textit{REFERENCE}}) have been made constant
+
+% \section{Calculation, implementation and simulation}
+>>>>>>> 1dfd1ac4c6efe0bc2e9b2ebda222ca0be066e828
+
+\chapter{Validation and verification; accuracy and precision}
+We cannot get a ground value. This could be measured, but this is not within our power. Therefore we try a different approach to "proof" that our model is trustworthy. We first take a look at the dependencies. Then we take a look at the extremes, and see if this results in intuitive behaviour in our model. We also do a dimension analysis. We do not have convergence in our model, since we have no infinite series. This is therefore ignored. And we take a look at the conditional numbers.
+
+\subsection{Dependencies} The network function of Accel shows us that the model has no cycles in it. Every cat 2 quantity is related the cat 1,2,3 quantities. The behaviour of all quantities are as expected, like you can see in the analysis section. 
+
+\subsection{Extremes} We look at 4 input variables:
+	\subsubsection{Vescort} When this is near zero the cost explode. This is logical because we need a lot of escorts to bring all the people to the right place. When this speed goes near it upper bound, then we have a decrease in cost, since we can have multiple disabled people per escort. This decreases the quality of our service though. This behaviour is according to intuition.
+	\subsubsection{WheelchairsPerMaintainer} The same inversely proportional behaviour exists for WheelchairsPerMaintainer. With little wheelchairs per maintainer we need a lot of maintainers, and thus have huge costs. This quantity does not influence quality.This is according to the reality. Because if wheelchairsPerMaintainer did influence the quality then the quality would decrease, because the wheelchairs are not maintained properly. So the maintainer cannot handle this amount of wheelchairs so then the number of wheelchairsPerMaintainer is wrong and should be decreased, which contradicts with the assumption that we could maintain them. So we conclude that this quantity should not influence the quality.
+	\subsubsection{TotalCostWheelchair} When the wheelchairs cost more, then the costs become more... This is fairly obvious behaviour and according to reality. 
+	\subsubsection{TimeTillDestruction} This value does influence the costs, but only very very little. This is logical as well. If we have a lifetime of a wheelchair of, let say 5 years, then that 4 hour period that it is used during our flight will not cause a great increase in costs. This quantity is inversely proportional to the costs, when the lifetime of the wheelchairs go up, then the cost decrease, but only very little. 
+	
+\subsection{Dimension analysis} Accel tells us that the dimension analysis is a go. We do this by checking the "check units" box and verify this with the units in the table in the formal model. These check out.
+
+\subsection{Conditional numbers} We do a sensitivity analysis and we get the following conditional numbers: 
+\begin{description}
+\item the first number relates to the costs and the second to the quality 
+	\item[Vescort]	0.50	0.0000025
+	\item[WheelchairsPerMaintainer]		0.50	0.0
+	\item[TotalCostWheelchair]		4.3e-10	0.0
+	\item[TimeTillDestructionPerYear]		4.2e-10	0.0
+	\end{description}
+	We have no numbers over 1, this means that any uncertainty in the input will not correspond to a great uncertainty in the output.  
+	
+\subsection{Conclusion} The model behaves intuitively and the uncertainty in the input does not correspond to a great uncertainty in the output. We therefore conclude that the model is precise, accurate to the problem and that it works like it should. We now have a verified and valid solution to the problem.
 % \chapter{Conclusion phase}
 % \section{Presentation and interpretation}
 
-% \section{Discussion after the conceptual model}
+\chapter{Discussion after the conceptual model}
+	\section{Stakeholders and keydrivers} In hindsight we picked the right stakeholders. But two of the have changed. These are the "Constuctors and maintainers of the wheelchairs" and "Other airline companies/airports". We choose to ignore the constructors, since their presence in the model is only in the cost of the wheelchair, a value later present in the maintenance costs of the wheelchair property.  And we ignored other airlines. This is because every flight gets allocated to a time in which it should leave, therefore not influencing other airlines. %source?
+	
+	\section{Optimization} We initially wanted to optimise both the cost and the time. We moved away from this idea because the time is fixed: we need to leave in x minutes. We then chose to optimise the cost and the quality of the product. 
+	
+	\section{Conceptual model} The conceptual model has been updated after the meeting in the third week. We did not need all the original properties. We simply discarded them from the conceptual model. We only discarded those properties that are nearly impossible to quantify, which causes trouble in the formalization phase. Also we had the total cost of the wheelchair about three times in there, hidden in different properties. 
+	
+	\section{Conclusion} Overall we think that we did a pretty good job for the conceptual model. It provided a solid basis for the formal model and it holds up with the stakeholders and keydrivers. 
 \chapter{Discussion after the formal model}
 We have chosen to use a constant value for the values of NrDisabled, distance, TimeBetweenFlights and SalaryPerHour.\\
 \section{NrDisabled}
