@@ -537,7 +537,7 @@ Adding up all these things leads to the formal definition of the problem above.
     \item SalaryPerHour
     \item TimeTillDestructionPerYear
     \end{itemize}
-<<<<<<< HEAD
+
 \vspace{-8pt}These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (\textbf{\textit{REFERENCE}}) have been made constant (so a category 3 property), in order to create a real life situation. 
 To retrieve an optimized solution for the model, an extra category 2 property has been added as well as two pareto functions. This added property is the quality (defined by a Pareto function) and the added Pareto functions are:
 \begin{center}
@@ -575,14 +575,14 @@ where both $c_1$ and $c_2$ are constants. This shows that the relation is a frac
 % \section{Calculation, implementation and simulation}
 
 % \section{Validation and verification; accuracy and precision}
-=======
+
 
     These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Pareto, we got the result that as long as NrDisabled, Distance or SalaryPerHour was 0, the cost is as low as possible. This is of course a situation that will never occur, so we changed the model.
 
     These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. to be 0 to create minimal solutions. Some of them (\textbf{\textit{REFERENCE}}) have been made constant
 
 % \section{Calculation, implementation and simulation}
->>>>>>> 1dfd1ac4c6efe0bc2e9b2ebda222ca0be066e828
+
 
 \chapter{Validation and verification; accuracy and precision}
 We cannot get a ground value. This could be measured, but this is not within our power. Therefore we try a different approach to "proof" that our model is trustworthy. We first take a look at the dependencies. Then we take a look at the extremes, and see if this results in intuitive behaviour in our model. We also do a dimension analysis. We do not have convergence in our model, since we have no infinite series. This is therefore ignored. And we take a look at the conditional numbers.
