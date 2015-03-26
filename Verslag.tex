@@ -573,6 +573,21 @@ the following can be concluded. If CostDecrease in formula 16.1 is substituted b
 Cost = \frac{c_1}{TimeTillDestruction}+ c_2
 \end{equation}
 where both $c_1$ and $c_2$ are constants. This shows that the relation is a fractional relation between the Cost and the TimeTillDesctruction which is in accordance to the concave up graph.\\
+<<<<<<< HEAD
+=======
+% \section{Calculation, implementation and simulation}
+
+>>>>>>> cbe191a21b791d89ed01b517d296c0bb5c4d8c63
+% \section{Validation and verification; accuracy and precision}
+
+
+    These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Pareto, we got the result that as long as NrDisabled, Distance or SalaryPerHour was 0, the cost is as low as possible. This is of course a situation that will never occur, so we changed the model.
+
+    These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. to be 0 to create minimal solutions. Some of them (\textbf{\textit{REFERENCE}}) have been made constant
+
+% \section{Calculation, implementation and simulation}
+
+>>>>>>> 121597692ccb4b7792c0e6de119b75fd185f727b
 
 \chapter{Validation and verification; accuracy and precision}
 We cannot get a ground value. This could be measured, but this is not within our power. Therefore we try a different approach to "proof" that our model is trustworthy. We first take a look at the dependencies. Then we take a look at the extremes, and see if this results in intuitive behaviour in our model. We also do a dimension analysis. We do not have convergence in our model, since we have no infinite series. This is therefore ignored. And we take a look at the conditional numbers.
@@ -601,6 +616,17 @@ We cannot get a ground value. This could be measured, but this is not within our
 % \chapter{Conclusion phase}
 % \section{Presentation and interpretation}
 
+\chapter{Presentation and interpretation}
+Our purpose is best served with a graph, because the model should give a value for multiple variables. Multiple variables can be chosen by the demanding company, in this case the KLM. those variables that can be chosen will lead to an output of the model, which is a graph. This is because there are multiple cases that lead to those equal variables.  \\ \\
+
+It is actually a pretty precise model, of course we miss something, but it is all new for us so we are still learning. The things we miss are not of mature importance and can be implemented, but we think that such a thing is waste of time and money. They will cost more money to implement then they will make them. This means that the will not optimize the model enough to be of an actual value to the model and the company.
+\setcounter{chapter}{+18}
+\chapter{Discussion after the conceptual model}
+\begin{enumerate}
+    \item   Just like in the example we chose to leave out wind speed, because most of the time the escorts will be walking inside a building, this and knowing that wind does not really affect walking. Due to these two arguments we think wind speed might be left out.
+    \item   
+\end{enumerate}
+
 \chapter{Discussion after the conceptual model}
 	\section{Stakeholders and keydrivers} In hindsight we picked the right stakeholders. But two of the have changed. These are the "Constuctors and maintainers of the wheelchairs" and "Other airline companies/airports". We choose to ignore the constructors, since their presence in the model is only in the cost of the wheelchair, a value later present in the maintenance costs of the wheelchair property.  And we ignored other airlines. This is because every flight gets allocated to a time in which it should leave, therefore not influencing other airlines. %source?
 	
@@ -624,8 +650,35 @@ The time between flights is also not always possible to edit, so during optimiza
 	
 	\section{SalaryPerHour}
 Ofcourse accel will try to put the salaries to zero since that would be the most cost efficient. This is not an acceptable outcome for the model. The salaries should be normal so these are made constant for optimization.
-% \section{Discussion after the result}
-% \section{Discussion after the solution of the initial problem}
+
+\chapter{Discussion after the result}
+\chapter{Discussion after the solution of the initial problem}
+
+\chapter{Extension}
+If we had another week we would make the model more extensive and probably do more research, such that we know for sure that we have not forgotten anything. That means we really want to know wether or not we have found al variables that are on influence on the cost of an airport. With an extra week it would also be possible to check for importance of cost, priority. For example the cost of  salary is in comparison to the cost of a delayed plane not as much. This one we have already implemented in the report, but with an extra week we could check for more of these things. If we find more of those things our model gets more precise, which is really nice for the KLM.
+
+\chapter{Possibilities for improvement}
+\section{Genericity}
+    We think our overall view is quite big, which means that our case is a bit difficult, but less difficult case could also be applied. This means we do not think we have tot improve this.
+\section{Scalability}
+    Our model will always function, maybe not for a few special-cases like everybody in the world is disabled, which means there do not exist escorts. In this case ofcourse our model will not work. If you look to our model in a normal way, you will notice that it will always work, the difference will be the cost for the KLM in this case.
+\section{Specialization}
+    It is best to represent it in a graph, such that the problem owner easily can see what contributes to what.
+\section{Audience}
+    So because it is for the KLM, and to be more specific for the board of the KLM, we do not think it will be a big audience. Also we hope the audience has at least a little bit of knowledge of the basic subject. because of all this we can implement more specialization. Also we can have more contact with the group such that we can skip subjects of the model, because they are already known, or we could stick longer to a subject to make it more clear.
+\section{Convincingness}
+    This might be one of the few parts which might be improved. We have made some assumptions in the special cases which are possible, but the probability is really low. So there might be a time where it will happen, but the current board of KLM will probably never experience something like this and for the next board the probability is also really low. So those assumptions are possible but not probable.
+\section{distinctiveness}
+    We tried to make a lot of variation between alternatives, sometimes really small variations, but we still think it is possible to improve some things.
+\section{Surprise}
+    There exist a lot of numbers which might not even exist in the future or that they depend on completely different things in the future. For now the numbers halt and it has an open outcome. In the future it will probably still be an open outcome, but the numbers might differ from what they are now. for example planes are a lot safer, and bigger. So more people will fly by plane and they might all fit in half of the planes we use now.
+\section{Impact}
+    This criteria is actually quite difficult, because a plane needs to be safe  the board of the KLM want to make as much profit as possible. This means there are two opposites involved. either prestige and profit which needs more impact or risk and responsibility which needs less impact. So that is why you could always improve this criteria, because if you choose one the other will be neglected. which in either case will cost money.
+	
+\chapter{Aspects to be proud of}
+	We think it is fair to say that there are a lot of aspects we are proud of. Of course the team is one of them, without our team and teamwork, we would have never been able to deliver such a product. I will have to admit that it was an honor for me to work with these awesome guys. Sometimes it could be quite annoying, but after we actually started working and ignored the ones whom were annoying, they would start working and we could finish whatever it was we wanted to finish. So i would like to say that i am really proud of the teamwork. To just emphasize this, i would like to say that i am really proud of what we have achieved in the few weeks we have been working on this. I think it was an honor to make this report with these guys.
+\chapter{What have we learned?}
+	One of the favorite things i have learned is the modeling process itself. I really think it will be useful later on in my life and I also thought is was pretty fun to do so. The one and only thing I actually did not like about this course was making the model in accel. Before I started I had no idea what it should be able to do and know I know, I also know the program is not really nice to work with. It actually lags social skills if you would compare it to a human.
 
 %%%%%%%%% INFORMATION %%%%%%%%%%
 % \section{A Note About References}
