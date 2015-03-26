@@ -462,7 +462,7 @@ Totaldistance1Escort= Vescort * TimeBetweenFlights
 
 \subsection{Same gate}
 The nearest gate to drop of someone is the gate he arrives at. This means the distance is zero so no distance, so no escort is needed to push him to his gate. Even if there are a hundred disabled people, even if it is a plane full of disabled people and you have 10 transfer seconds, you still do not need any escorts, because they already are at the place they need to be.
-\subsection{farthest gate}
+\subsection{furthest gate}
 The gate which is most distant. If you only need to take one person there, you also only need one person to push him there. If there are multiple people who need to go to the most distant gate, you will need more people. It is only possible to push one person at a time for a escort. This means that if the plane is full of disabled people, you will need 853 escorts to push all those people to the same place. If the time in which this has to be done is really small and actually not realistic, only then it is allowed to prioritize other planes and let some people wait. There is no other reason why people should have to wait.
 \subsection{No disabled people}
 If there are no disabled people, no escorts are needed, so no extra money is involved in a flight.
@@ -537,14 +537,17 @@ Adding up all these things leads to the formal definition of the problem above.
     \item SalaryPerHour
     \item TimeTillDestructionPerYear
     \end{itemize}
-<<<<<<< HEAD
 
+<<<<<<< HEAD
 \vspace{-8pt}These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (\textbf{\textit{REFERENCE}}) have been made constant (so a category 3 property), in order to create a real life situation.
 =======
 
 These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (NrDisabled, Distance, TimeBetweenFlights, WheelchairsPerMaintainer and SalaryPerHour) have been made constant (so a category 3 property), in order to create a real life situation.
 >>>>>>> origin/master
 To retrieve an optimized solution for the model, an extra category 2 property has been added as well as two pareto functions. This added property is the quality (defined by a Pareto function) and the added Pareto functions are:
+=======
+These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (NrDisabled, Distance, TimeBetweenFlights, WheelchairsPerMaintainer and SalaryPerHour) have been made constant (so a category 3 property), in order to create a real life situation. To retrieve an optimized solution for the model, an extra category 2 property has been added as well as two pareto functions. This added property is the quality (defined by a Pareto function) and the added Pareto functions are:
+>>>>>>> origin/master
 \begin{center}
 \vspace{-4pt}$Cost=paretoHor(paretoMin(CostEscorts+CostMaintainers+$\\$CostMaintenance+CostDecrease))$
 \end{center}
@@ -560,9 +563,6 @@ To retrieve an optimized solution for the model, an extra category 2 property ha
 \caption{The cost of function of the time between the flights}
 \includegraphics[width=0.3\textwidth]{figures/cost(TBF)}
 \end{figure}
-<<<<<<< HEAD
-Figure 16.1 is a linear function, which follows from the formula for the cost, given by
-=======
 \\ \\
 Figure 16.1 is a linear function, which follows from the formula for the cost, given by
 >>>>>>> origin/master
@@ -650,6 +650,9 @@ The time between flights is also not always possible to edit, so during optimiza
 Ofcourse accel will try to put the salaries to zero since that would be the most cost efficient. This is not an acceptable outcome for the model. The salaries should be normal so these are made constant for optimization.
 
 \chapter{Discussion after the result}
+
+	\section{The graphs}
+	
 \chapter{Discussion after the solution of the initial problem}
 
 \chapter{Extension}
