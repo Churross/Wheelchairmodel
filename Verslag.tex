@@ -538,16 +538,8 @@ Adding up all these things leads to the formal definition of the problem above.
     \item TimeTillDestructionPerYear
     \end{itemize}
 
-<<<<<<< HEAD
-\vspace{-8pt}These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (\textbf{\textit{REFERENCE}}) have been made constant (so a category 3 property), in order to create a real life situation.
-=======
-
-These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (NrDisabled, Distance, TimeBetweenFlights, WheelchairsPerMaintainer and SalaryPerHour) have been made constant (so a category 3 property), in order to create a real life situation.
->>>>>>> origin/master
-To retrieve an optimized solution for the model, an extra category 2 property has been added as well as two pareto functions. This added property is the quality (defined by a Pareto function) and the added Pareto functions are:
-=======
 These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (NrDisabled, Distance, TimeBetweenFlights, WheelchairsPerMaintainer and SalaryPerHour) have been made constant (so a category 3 property), in order to create a real life situation. To retrieve an optimized solution for the model, an extra category 2 property has been added as well as two pareto functions. This added property is the quality (defined by a Pareto function) and the added Pareto functions are:
->>>>>>> origin/master
+
 \begin{center}
 \vspace{-4pt}$Cost=paretoHor(paretoMin(CostEscorts+CostMaintainers+$\\$CostMaintenance+CostDecrease))$
 \end{center}
@@ -647,11 +639,12 @@ This also has to do with optimization, since the cost go down significantly if t
 The time between flights is also not always possible to edit, so during optimization accel should not change this.
 	
 	\section{SalaryPerHour}
-Ofcourse accel will try to put the salaries to zero since that would be the most cost efficient. This is not an acceptable outcome for the model. The salaries should be normal so these are made constant for optimization.
+Of course accel will try to put the salaries to zero since that would be the most cost efficient. This is not an acceptable outcome for the model. The salaries should be normal so these are made constant for optimization.
 
 \chapter{Discussion after the result}
 
 	\section{The graphs}
+	The graph in figure 16.3 has a lot of spikes in it. This happens because of a floating point division. In a real life scenario this will not be a problem, because the fluctuations it causes are insignificant(0.0001 cents).
 	
 \chapter{Discussion after the solution of the initial problem}
 
@@ -686,6 +679,8 @@ There are special cases in our model which are not very likely to happend, it mi
 	\section{M. Ras}I will have to admit that it was an honor for me to work with these awesome guys. Sometimes it could be quite annoying, but after we actually started working and ignored the ones whom were annoying, they would start working and we could finish whatever it was we wanted to finish. So i would like to say that i am really proud of the teamwork. To just emphasize this, i would like to say that i am really proud of what we have achieved in the few weeks we have been working on this. I think it was an honor to make this report with these guys.
 	
 	\section{Y. Meijaard} I am very proud of the derivations and about the eventual model. I am proud of the conceptual model, it is very thorough and covers a lot of aspects. The eventual Accel model is fine, I would like to see a dynamical version of it. But this will take a few more months to get the quality that I want. And I am very proud of this group, although not every moment was productive, it was a honour working with these fine gentlemen.
+	
+	\section{B. Maas} I am proud of the fact that we managed to create a working team. In the beginning of the project we were just screaming ideas and no one really knew what the plan was. But when we started to do everything more organised, for example letting just one person speak at the time, we really started getting productive. As is reflected in our report.
 
 \section{C. v. Horssen} I really like the result of eight weeks of work, I am proud on the final result. Also The teamwork was pretty good, everyone did his part of the project. It is a shame this project is already finished, we could have achieved so much more with our model if we would have more time.
 \chapter{What have we learned?}
@@ -694,6 +689,9 @@ There are special cases in our model which are not very likely to happend, it mi
 	
 	\section{Y. Meijaard}
 	I have learned a serious amount of mathematical tricks. I learned to extract the important pieces of a concept, quantify these and draw conclusions from their result. The moddelling procces is an useful skill, but I think that the to-do list method and Accel, although I learned how it works, will never again be useful.
+	
+	\section{B. Maas}
+	I think the most important thing I learned during these 8 weeks is working as a team. That is, dividing tasks, communicating and adjusting to ideas of others. In the beginning it was hard, but when time passed, things just went automatically. I've also learned to use github and LaTeX, which will be usefull in future projects.
 
 \section{C. v. Horssen} During this course I have learned how github works, also I learned how the process of creating a model works and what you should take in mind while designing a model. There is some calculus with multiple variables in the course as well, this was new to me and I found this very interesting.
 %%%%%%%%% INFORMATION %%%%%%%%%%
