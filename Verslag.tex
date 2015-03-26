@@ -523,15 +523,12 @@ These values can be calculated from certain constants in the model and some valu
 Adding up all these things leads to the formal definition of the problem above.
 
 %third deadline
-<<<<<<< HEAD
-% \section{Calculation, implementation and simulation}
-=======
 
 \chapter{Calculation, implementation and simulation}
     Initially, we just put the formulas that are mentioned in the derivation into Accel. We used sliders for the values:
     \begin{itemize}
     \itemsep0em
-    \item\vspace{-8pt} NrDisabled
+    \item\vspace{-4pt} NrDisabled
     \item Distance
     \item Vescort
     \item TimeBetweenFlights
@@ -540,8 +537,12 @@ Adding up all these things leads to the formal definition of the problem above.
     \item SalaryPerHour
     \item TimeTillDestructionPerYear
     \end{itemize}
-
-\vspace{-8pt}These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (\textbf{\textit{REFERENCE}}) have been made constant (so a category 3 property), in order to create a real life situation. 
+<<<<<<< HEAD
+\vspace{-4pt}These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (\textbf{\textit{REFERENCE}}) have been made constant (so a category 3 property), in order to create a real life situation. 
+=======
+    
+These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (\textbf{\textit{REFERENCE}}) have been made constant (so a category 3 property), in order to create a real life situation. 
+>>>>>>> b6f230d185492765803f05568f8186f589ee8511
 To retrieve an optimized solution for the model, an extra category 2 property has been added as well as two pareto functions. This added property is the quality (defined by a Pareto function) and the added Pareto functions are:
 \begin{center}
 \vspace{-4pt}$Cost=paretoHor(paretoMin(CostEscorts+CostMaintainers+$\\$CostMaintenance+CostDecrease))$
@@ -558,6 +559,7 @@ To retrieve an optimized solution for the model, an extra category 2 property ha
 \caption{The cost of function of the time between the flights}
 \includegraphics[width=0.3\textwidth]{figures/cost(TBF)}
 \end{figure}
+\\
 Figure 16.1 is a linear function, which follows from the formula for the cost, given by 
 \begin{equation}
 Costs = CostEscorts + CostMaintainers + CostMaintanance + CostDecrease
@@ -575,6 +577,10 @@ the following can be concluded. If CostDecrease in formula 16.1 is substituted b
 Cost = \frac{c_1}{TimeTillDestruction}+ c_2
 \end{equation}
 where both $c_1$ and $c_2$ are constants. This shows that the relation is a fractional relation between the Cost and the TimeTillDesctruction which is in accordance to the concave up graph.\\
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
 % \section{Calculation, implementation and simulation}
 
 >>>>>>> cbe191a21b791d89ed01b517d296c0bb5c4d8c63
@@ -584,9 +590,10 @@ where both $c_1$ and $c_2$ are constants. This shows that the relation is a frac
     These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Pareto, we got the result that as long as NrDisabled, Distance or SalaryPerHour was 0, the cost is as low as possible. This is of course a situation that will never occur, so we changed the model.
 
     These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. to be 0 to create minimal solutions. Some of them (\textbf{\textit{REFERENCE}}) have been made constant
+>>>>>>> b6f230d185492765803f05568f8186f589ee8511
 
-% \section{Calculation, implementation and simulation}
 
+>>>>>>> 121597692ccb4b7792c0e6de119b75fd185f727b
 
 \chapter{Validation and verification; accuracy and precision}
 We cannot get a ground value. This could be measured, but this is not within our power. Therefore we try a different approach to "proof" that our model is trustworthy. We first take a look at the dependencies. Then we take a look at the extremes, and see if this results in intuitive behaviour in our model. We also do a dimension analysis. We do not have convergence in our model, since we have no infinite series. This is therefore ignored. And we take a look at the conditional numbers.
@@ -634,15 +641,20 @@ It is actually a pretty precise model, of course we miss something, but it is al
 	\section{Conceptual model} The conceptual model has been updated after the meeting in the third week. We did not need all the original properties. We simply discarded them from the conceptual model. We only discarded those properties that are nearly impossible to quantify, which causes trouble in the formalization phase. Also we had the total cost of the wheelchair about three times in there, hidden in different properties. 
 	
 	\section{Conclusion} Overall we think that we did a pretty good job for the conceptual model. It provided a solid basis for the formal model and it holds up with the stakeholders and keydrivers. 
+
 \chapter{Discussion after the formal model}
 We have chosen to use a constant value for the values of NrDisabled, distance, TimeBetweenFlights and SalaryPerHour.\\
-\section{NrDisabled}
+	
+	\section{NrDisabled}
 The number of disabled people on a flight is a constant for optimization purposes. If we optimize the model using accel the  model will always give a plane with zero disabled people as the optimal solution and because there is no control over this, we decided to make this a fixed number.
-\section{distance}
+	
+	\section{distance}
 This also has to do with optimization, since the cost go down significantly if the distance between gates goes down without huge impact on the quality, and since there is no control over this (it is not possible to move gates closer together for a few minutes and then move them back) this should not be set to zero during optimization.
-\section{TimeBetweenFlights}
+	
+	\section{TimeBetweenFlights}
 The time between flights is also not always possible to edit, so during optimization accel should not change this.
-\section{SalaryPerHour}
+	
+	\section{SalaryPerHour}
 Ofcourse accel will try to put the salaries to zero since that would be the most cost efficient. This is not an acceptable outcome for the model. The salaries should be normal so these are made constant for optimization.
 
 \chapter{Discussion after the result}
