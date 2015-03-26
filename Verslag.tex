@@ -528,7 +528,7 @@ Adding up all these things leads to the formal definition of the problem above.
     Initially, we just put the formulas that are mentioned in the derivation into Accel. We used sliders for the values:
     \begin{itemize}
     \itemsep0em
-    \item\vspace{-4pt} NrDisabled
+    \item\vspace{-8pt} NrDisabled
     \item Distance
     \item Vescort
     \item TimeBetweenFlights
@@ -537,12 +537,8 @@ Adding up all these things leads to the formal definition of the problem above.
     \item SalaryPerHour
     \item TimeTillDestructionPerYear
     \end{itemize}
-<<<<<<< HEAD
-\vspace{-4pt}These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (\textbf{\textit{REFERENCE}}) have been made constant (so a category 3 property), in order to create a real life situation. 
-=======
     
-These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (\textbf{\textit{REFERENCE}}) have been made constant (so a category 3 property), in order to create a real life situation. 
->>>>>>> b6f230d185492765803f05568f8186f589ee8511
+These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (NrDisabled, Distance, TimeBetweenFlights, WheelchairsPerMaintainer and SalaryPerHour) have been made constant (so a category 3 property), in order to create a real life situation. 
 To retrieve an optimized solution for the model, an extra category 2 property has been added as well as two pareto functions. This added property is the quality (defined by a Pareto function) and the added Pareto functions are:
 \begin{center}
 \vspace{-4pt}$Cost=paretoHor(paretoMin(CostEscorts+CostMaintainers+$\\$CostMaintenance+CostDecrease))$
@@ -554,12 +550,12 @@ To retrieve an optimized solution for the model, an extra category 2 property ha
 \begin{figure}[!h]
 \caption{The cost of function of the costs of the escort personnel}
 \includegraphics[width=0.3\textwidth]{figures/cost(CE)}
-\caption{The cost of function of the time till the wheelchairs will unusable}
+\caption{The cost of function of the time till the wheelchairs will be unusable}
 \includegraphics[width=0.3\textwidth]{figures/cost(TTD)}
 \caption{The cost of function of the time between the flights}
 \includegraphics[width=0.3\textwidth]{figures/cost(TBF)}
 \end{figure}
-\\
+\\ \\
 Figure 16.1 is a linear function, which follows from the formula for the cost, given by 
 \begin{equation}
 Costs = CostEscorts + CostMaintainers + CostMaintanance + CostDecrease
@@ -577,23 +573,6 @@ the following can be concluded. If CostDecrease in formula 16.1 is substituted b
 Cost = \frac{c_1}{TimeTillDestruction}+ c_2
 \end{equation}
 where both $c_1$ and $c_2$ are constants. This shows that the relation is a fractional relation between the Cost and the TimeTillDesctruction which is in accordance to the concave up graph.\\
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-% \section{Calculation, implementation and simulation}
-
->>>>>>> cbe191a21b791d89ed01b517d296c0bb5c4d8c63
-% \section{Validation and verification; accuracy and precision}
-
-
-    These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Pareto, we got the result that as long as NrDisabled, Distance or SalaryPerHour was 0, the cost is as low as possible. This is of course a situation that will never occur, so we changed the model.
-
-    These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. to be 0 to create minimal solutions. Some of them (\textbf{\textit{REFERENCE}}) have been made constant
->>>>>>> b6f230d185492765803f05568f8186f589ee8511
-
-
->>>>>>> 121597692ccb4b7792c0e6de119b75fd185f727b
 
 \chapter{Validation and verification; accuracy and precision}
 We cannot get a ground value. This could be measured, but this is not within our power. Therefore we try a different approach to "proof" that our model is trustworthy. We first take a look at the dependencies. Then we take a look at the extremes, and see if this results in intuitive behaviour in our model. We also do a dimension analysis. We do not have convergence in our model, since we have no infinite series. This is therefore ignored. And we take a look at the conditional numbers.
