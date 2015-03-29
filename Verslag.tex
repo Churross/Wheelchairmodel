@@ -6,6 +6,7 @@
 \usepackage{wrapfig}
 
 
+
 \usepackage{amsmath}
 \usepackage[hidelinks]{hyperref}
 \usepackage[official]{eurosym}
@@ -580,8 +581,7 @@ where both $c_1$ and $c_2$ are constants. This shows that the relation is a frac
 Figure 16.3 shows a graph which looks similar to a plotted trigonometric function, with the angle measured in degrees. However when the functions are consulted, non such function can be derived. But when looking at the range of the graph, there is a fluctuation of 0.01 euro cents. Zooming out on the graph results then also in a straight line\footnote{by approximation}. When going through the model more thoroughly, the model uses for some properties float-based inputs. While this theoretical number is allowed to be entered into the model, in real life this would not be realistic. Also the earlier mentioned fluctuation is not of significance for the payment of the personnel, since this amount is rounded off to cents only, not to hundredths of cents. Hence, it is allowed to regard the obtained graph as a straight line.
 \clearpage
 \section*{The optimal solution}
-By using the Genetic Optimization function of Accel, it is possible to archive an optimal solution where there is a distribution between the cost and the quality of 
-of the service. The obtained result of the Accel-function can be found below.
+By using the Genetic Optimization function of Accel, it is possible to archive an optimal solution where there is a distribution between the cost and the quality of the service. The obtained result of the Accel-function can be found below.
 \begin{wrapfigure}{r}{0.5\textwidth}
   \begin{center}
   \includegraphics[width=0.5\textwidth]{figures/optimized}
@@ -628,7 +628,7 @@ When arguing on the accuracy or on the precision, there is a certain lack. This 
 \chapter{Discussion after the conceptual model}
 \begin{enumerate}
     \item   Just like in the example we chose to leave out wind speed, because most of the time the escorts will be walking inside a building, this and knowing that wind does not really affect walking. Due to these two arguments we think wind speed might be left out.
-    \item
+
 \end{enumerate}
 
 \chapter{Discussion after the conceptual model}
@@ -659,7 +659,7 @@ Of course accel will try to put the salaries to zero since that would be the mos
 \chapter{Discussion after the result}
 
 	\section{The graphs}
-	The graph in figure 16.3 has a lot of spikes in it. This happens because of a floating point division. In a real life scenario this will not be a problem, because the fluctuations it causes are insignificant(0.0001 cents).
+	The graph in figure 16.3 has a lot of spikes in it. This happens because of a floating point division. In a real life scenario this will not be a problem, because the fluctuations it causes are insignificant(0.01 cents).
 	
 \chapter{Discussion after the solution of the initial problem}
 So for the last time reflection the found solution for the problem on the initial problem, can it be argued that our model suffices the purpose? The model created does solve the formulated problem, by the fact that given the required input the model produces an outcome which states which resources are required to have the transfer depart on time. From the model can be obtained how many escorts there are required, the number of maintainers and the number of wheelchairs required. Therefore the model solves the initial problem.
