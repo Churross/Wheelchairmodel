@@ -3,6 +3,10 @@
 \usepackage{amsfonts} % if you want blackboard bold symbols e.g. for real numbers
 \usepackage{graphicx} % if you want to include jpeg or pdf pictures
 \usepackage{geometry}
+\usepackage{wrapfig}
+
+
+
 \usepackage{amsmath}
 \usepackage[hidelinks]{hyperref}
 \usepackage[official]{eurosym}
@@ -464,7 +468,7 @@ Totaldistance1Escort= Vescort * TimeBetweenFlights
 
 \subsection{Same gate}
 The nearest gate to drop of someone is the gate he arrives at. This means the distance is zero so no distance, so no escort is needed to push him to his gate. Even if there are a hundred disabled people, even if it is a plane full of disabled people and you have 10 transfer seconds, you still do not need any escorts, because they already are at the place they need to be.
-\subsection{farthest gate}
+\subsection{furthest gate}
 The gate which is most distant. If you only need to take one person there, you also only need one person to push him there. If there are multiple people who need to go to the most distant gate, you will need more people. It is only possible to push one person at a time for a escort. This means that if the plane is full of disabled people, you will need 853 escorts to push all those people to the same place. If the time in which this has to be done is really small and actually not realistic, only then it is allowed to prioritize other planes and let some people wait. There is no other reason why people should have to wait.
 \subsection{No disabled people}
 If there are no disabled people, no escorts are needed, so no extra money is involved in a flight.
@@ -527,7 +531,7 @@ Adding up all these things leads to the formal definition of the problem above.
 %third deadline
 
 \chapter{Calculation, implementation and simulation}
-    Initially, we just put the formulas that are mentioned in the derivation into Accel. We used sliders for the values:
+Initially, we just put the formulas that are mentioned in the derivation into Accel. We used sliders for the values:
     \begin{itemize}
     \itemsep0em
     \item\vspace{-8pt} NrDisabled
@@ -539,14 +543,9 @@ Adding up all these things leads to the formal definition of the problem above.
     \item SalaryPerHour
     \item TimeTillDestructionPerYear
     \end{itemize}
-<<<<<<< HEAD
 
-\vspace{-8pt}These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (\textbf{\textit{REFERENCE}}) have been made constant (so a category 3 property), in order to create a real life situation.
-=======
-    
-These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (NrDisabled, Distance, TimeBetweenFlights, WheelchairsPerMaintainer and SalaryPerHour) have been made constant (so a category 3 property), in order to create a real life situation. 
->>>>>>> origin/master
-To retrieve an optimized solution for the model, an extra category 2 property has been added as well as two pareto functions. This added property is the quality (defined by a Pareto function) and the added Pareto functions are:
+\vspace{-4pt}These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (NrDisabled, Distance, TimeBetweenFlights, WheelchairsPerMaintainer and SalaryPerHour) have been made constant (so a category 3 property), in order to create a real life situation. To retrieve an optimized solution for the model, an extra category 2 property has been added as well as two pareto functions. This added property is the quality (defined by a Pareto function) and the added Pareto functions are:
+
 \begin{center}
 \vspace{-4pt}$Cost=paretoHor(paretoMin(CostEscorts+CostMaintainers+$\\$CostMaintenance+CostDecrease))$
 \end{center}
@@ -562,12 +561,9 @@ To retrieve an optimized solution for the model, an extra category 2 property ha
 \caption{The cost of function of the time between the flights}
 \includegraphics[width=0.3\textwidth]{figures/cost(TBF)}
 \end{figure}
-<<<<<<< HEAD
-Figure 16.1 is a linear function, which follows from the formula for the cost, given by
-=======
 \\ \\
-Figure 16.1 is a linear function, which follows from the formula for the cost, given by 
->>>>>>> origin/master
+Figure 16.1 is a linear function, which follows from the formula for the cost, given by
+
 \begin{equation}
 Costs = CostEscorts + CostMaintainers + CostMaintanance + CostDecrease
 \end{equation}
@@ -584,6 +580,19 @@ the following can be concluded. If CostDecrease in formula 16.1 is substituted b
 Cost = \frac{c_1}{TimeTillDestruction}+ c_2
 \end{equation}
 where both $c_1$ and $c_2$ are constants. This shows that the relation is a fractional relation between the Cost and the TimeTillDesctruction which is in accordance to the concave up graph.\\
+Figure 16.3 shows a graph which looks similar to a plotted trigonometric function, with the angle measured in degrees. However when the functions are consulted, non such function can be derived. But when looking at the range of the graph, there is a fluctuation of 0.01 euro cents. Zooming out on the graph results then also in a straight line\footnote{by approximation}. When going through the model more thoroughly, the model uses for some properties float-based inputs. While this theoretical number is allowed to be entered into the model, in real life this would not be realistic. Also the earlier mentioned fluctuation is not of significance for the payment of the personnel, since this amount is rounded off to cents only, not to hundredths of cents. Hence, it is allowed to regard the obtained graph as a straight line.
+\clearpage
+\section*{The optimal solution}
+By using the Genetic Optimization function of Accel, it is possible to archive an optimal solution where there is a distribution between the cost and the quality of the service. The obtained result of the Accel-function can be found below.
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+  \includegraphics[width=0.5\textwidth]{figures/optimized}
+  \caption{The obtained result from Accel's Genetic Optimization}   
+    \includegraphics[width=0.5\textwidth]{figures/optimized2}
+      \caption{The result with a line added though the points.}
+  \end{center}
+\end{wrapfigure}
+When one inspects the input and outputs for one of the points, the points which lie  to the right have a higher quality, almost 10 out of 10, but also costs much, over 5000 euro. The points which lie to the left have a lower quality rating, but cost less. Therefore, KLM should decide on how much quality their escort service should have, in order to find a minimal cost for this service. Also there results are based on an average distance from the minimal gate distance to the maximal gate distance, minimum salary, 1 hour to transfer all disabled and 10 disabled people per flight. If these should change, then the model should be adjusted accordingly in order to get a minimal solution.
 
 \chapter{Validation and verification; accuracy and precision}
 We cannot get a ground value. This could be measured, but this is not within our power. Therefore we try a different approach to "proof" that our model is trustworthy. We first take a look at the dependencies. Then we take a look at the extremes, and see if this results in intuitive behaviour in our model. We also do a dimension analysis. We do not have convergence in our model, since we have no infinite series. This is therefore ignored. And we take a look at the conditional numbers.
@@ -613,14 +622,15 @@ We cannot get a ground value. This could be measured, but this is not within our
 % \section{Presentation and interpretation}
 
 \chapter{Presentation and interpretation}
-Our purpose is best served with a graph, because the model should give a value for multiple variables. Multiple variables can be chosen by the demanding company, in this case the KLM. those variables that can be chosen will lead to an output of the model, which is a graph. This is because there are multiple cases that lead to those equal variables.  \\ \\
+The best way to represent the optimal solution is by the graph, found at chapter 16. This graph shows clearly the relation between the quality level and the cost of the service. The reason for showing this graph instead of another presentation of the output, is the fact that this graph shows that only a slighter more priority given to the quality only yields a small increase in cost.\\
+Reflecting back onto the initial problem, "Given a description of the airport, incoming flights and departing flights: how many resources are required to get a flight of the ground in time with all disabled people on board?', the problem owner should also state their quality standard, such that an optimal solution can be given. Without this extra bit of information, only a graph can display the relation between the cost and the quality can be given.\\
+When arguing on the accuracy or on the precision, there is a certain lack. This lack consists of the fact that there are no numbers known to us of the average distance for all escorts of KLM, as of the salary they get paid, the lifespan of the wheelchairs etc. These external factors are out of our control. This model only gives an output on the hypothetical inputs of our choice. Despite these inaccuracies, the results obtained from the model are realistic for the costs for one escort and hence our model suffices our purpose.
 
-It is actually a pretty precise model, of course we miss something, but it is all new for us so we are still learning. The things we miss are not of mature importance and can be implemented, but we think that such a thing is waste of time and money. They will cost more money to implement then they will make them. This means that the will not optimize the model enough to be of an actual value to the model and the company.
 \setcounter{chapter}{+18}
 \chapter{Discussion after the conceptual model}
 \begin{enumerate}
     \item   Just like in the example we chose to leave out wind speed, because most of the time the escorts will be walking inside a building, this and knowing that wind does not really affect walking. Due to these two arguments we think wind speed might be left out.
-    \item
+
 \end{enumerate}
 
 \chapter{Discussion after the conceptual model}
@@ -630,12 +640,9 @@ It is actually a pretty precise model, of course we miss something, but it is al
 	
 	\section{Conceptual model} The conceptual model has been updated after the meeting in the third week. We did not need all the original properties. We simply discarded them from the conceptual model. We only discarded those properties that are nearly impossible to quantify, which causes trouble in the formalization phase. Also we had the total cost of the wheelchair about three times in there, hidden in different properties.
 	
-<<<<<<< HEAD
 	\section{Conclusion} Overall we think that we did a pretty good job for the conceptual model. It provided a solid basis for the formal model and it holds up with the stakeholders and keydrivers.
-=======
-	\section{Conclusion} Overall we think that we did a pretty good job for the conceptual model. It provided a solid basis for the formal model and it holds up with the stakeholders and keydrivers. 
 
->>>>>>> origin/master
+
 \chapter{Discussion after the formal model}
 We have chosen to use a constant value for the values of NrDisabled, distance, TimeBetweenFlights and SalaryPerHour.\\
 	
@@ -649,11 +656,15 @@ This also has to do with optimization, since the cost go down significantly if t
 The time between flights is also not always possible to edit, so during optimization accel should not change this.
 	
 	\section{SalaryPerHour}
-Ofcourse accel will try to put the salaries to zero since that would be the most cost efficient. This is not an acceptable outcome for the model. The salaries should be normal so these are made constant for optimization.
+Of course accel will try to put the salaries to zero since that would be the most cost efficient. This is not an acceptable outcome for the model. The salaries should be normal so these are made constant for optimization.
 
 \chapter{Discussion after the result}
-\chapter{Discussion after the solution of the initial problem}
 
+	\section{The graphs}
+	The graph in figure 16.3 has a lot of spikes in it. This happens because of a floating point division. In a real life scenario this will not be a problem, because the fluctuations it causes are insignificant(0.01 cents).
+	
+\chapter{Discussion after the solution of the initial problem}
+So for the last time reflection the found solution for the problem on the initial problem, can it be argued that our model suffices the purpose? The model created does solve the formulated problem, by the fact that given the required input the model produces an outcome which states which resources are required to have the transfer depart on time. From the model can be obtained how many escorts there are required, the number of maintainers and the number of wheelchairs required. Therefore the model solves the initial problem.
 \chapter{Extension}
 If we had another week we would make the model more extensive and probably do more research, such that we know for sure that we have not forgotten anything. That means we really want to know wether or not we have found al variables that are on influence on the cost of an airport. With an extra week it would also be possible to check for importance of cost, priority. For example the cost of  salary is in comparison to the cost of a delayed plane not as much. This one we have already implemented in the report, but with an extra week we could check for more of these things. If we find more of those things our model gets more precise, which is really nice for the KLM.
 
@@ -680,18 +691,32 @@ There are special cases in our model which are not very likely to happend, it mi
     This criteria is actually quite difficult, because a plane needs to be safe  the board of the KLM want to make as much profit as possible. This means there are two opposites involved. Either prestige and profit which needs more impact or risk and responsibility which needs less impact. So that is why you could always improve this criteria, because if you choose one the other will be neglected. which in either case will cost money.
 	
 \chapter{Aspects to be proud of}
-	We think it is fair to say that there are a lot of aspects we are proud of. Of course the team is one of them, without our team and teamwork, we would have never been able to deliver such a product. 
+	We think it is fair to say that there are a lot of aspects we are proud of. Of course the team is one of them, without our team and teamwork, we would have never been able to deliver such a product.
 	
-	\section{M. Ras}I will have to admit that it was an honor for me to work with these awesome guys. Sometimes it could be quite annoying, but after we actually started working and ignored the ones whom were annoying, they would start working and we could finish whatever it was we wanted to finish. So i would like to say that i am really proud of the teamwork. To just emphasize this, i would like to say that i am really proud of what we have achieved in the few weeks we have been working on this. I think it was an honor to make this report with these guys.
+	\section*{M. Ras}I will have to admit that it was an honor for me to work with these awesome guys. Sometimes it could be quite annoying, but after we actually started working and ignored the ones whom were annoying, they would start working and we could finish whatever it was we wanted to finish. So i would like to say that i am really proud of the teamwork. To just emphasize this, i would like to say that i am really proud of what we have achieved in the few weeks we have been working on this. I think it was an honor to make this report with these guys.
 	
-	\section{Y. Meijaard} I am very proud of the derivations and about the eventual model. I am proud of the conceptual model, it is very thorough and covers a lot of aspects. The eventual Accel model is fine, I would like to see a dynamical version of it. But this will take a few more months to get the quality that I want. And I am very proud of this group, although not every moment was productive, it was a honour working with these fine gentlemen.
+	\section*{Y. Meijaard} I am very proud of the derivations and about the eventual model. I am proud of the conceptual model, it is very thorough and covers a lot of aspects. The eventual Accel model is fine, I would like to see a dynamical version of it. But this will take a few more months to get the quality that I want. And I am very proud of this group, although not every moment was productive, it was a honor working with these fine gentlemen.
+	
+	\section*{B. Maas} I am proud of the fact that we managed to create a working team. In the beginning of the project we were just screaming ideas and no one really knew what the plan was. But when we started to do everything more organized, for example letting just one person speak at the time, we really started getting productive. As is reflected in our report.
+
+\section*{C. v. Horssen} I really like the result of eight weeks of work, I am proud on the final result. Also The teamwork was pretty good, everyone did his part of the project. It is a shame this project is already finished, we could have achieved so much more with our model if we would have more time.
+
+\section*{Y. Haenen}
+I am proud of the final product we produced. Although not every moment we worked on the project was equally productive, we did manage to create a working model which is in my opinion one of the nicest intermediate products. Also, I'm truly impressed by the work my fellow team members have done in order to create the final product. It might not have been as thorough is I wanted it to be, but for the given time for the project I'm proud of the produced product.
 \chapter{What have we learned?}
-	\section{M. Ras}
+	\section*{M. Ras}
 	One of the favorite things i have learned is the modeling process itself. I really think it will be useful later on in my life and I also thought is was pretty fun to do so. The one and only thing I actually did not like about this course was making the model in accel. Before I started I had no idea what it should be able to do and know I know, I also know the program is not really nice to work with. It actually lags social skills if you would compare it to a human.
 	
-	\section{Y. Meijaard}
-	I have learned a serious amount of mathematical tricks. I learned to extract the important pieces of a concept, quantify these and draw conclusions from their result. The moddelling procces is an useful skill, but I think that the to-do list method and Accel, although I learned how it works, will never again be useful. 
+	\section*{Y. Meijaard}
+	I have learned a serious amount of mathematical tricks. I learned to extract the important pieces of a concept, quantify these and draw conclusions from their result. The modeling process is an useful skill, but I think that the to-do list method and Accel, although I learned how it works, will never again be useful.
+	
+	\section*{B. Maas}
+	I think the most important thing I learned during these 8 weeks is working as a team. That is, dividing tasks, communicating and adjusting to ideas of others. In the beginning it was hard, but when time passed, things just went automatically. I've also learned to use github and LaTeX, which will be useful in future projects.
 
+\section*{C. v. Horssen} During this course I have learned how github works, also I learned how the process of creating a model works and what you should take in mind while designing a model. There is some calculus with multiple variables in the course as well, this was new to me and I found this very interesting.
+
+\section*{Y. Haenen}
+The most valuable thing I have learned during the course and the modeling project is the fact that tough the description of the problem can be vague, the final product can still be an accurate solution to the given problem, using the explained steps of the course. Also, I learned that although everyone works on a tiny bit of the overall product to be produced, the final product can still be of a sustainable level.
 %%%%%%%%% INFORMATION %%%%%%%%%%
 % \section{A Note About References}
 
