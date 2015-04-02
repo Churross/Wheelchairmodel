@@ -70,10 +70,13 @@ These person have got the greatest interest in the escort service in general, in
 	\item Safety
 	\item Reliability
 \end{itemize}
-\section{Relation between the stakeholders and keydrivers}
+\section{Relations between the stakeholders and keydrivers}
 If the Stakeholders are linked to the keydrivers, their relations could be summarized into this mind map:
 \begin{center}
+\begin{figure}[!h]
+\caption[Relations between stakeholders and keydrivers for lof]{Relations between stakeholders and keydrivers}
 \includegraphics[scale=0.4]{figures/relationstakeholders.jpg}
+\end{figure}
 \end{center}
 \subsection{KLM}
 One of the interests of KLM is the costs to keep them as low as possible, but not such that this is the main interest. The plane needs to leave on time, so there needs to be a minimum amount of money to realize the on time depart of the plane.\\
@@ -103,10 +106,13 @@ Other airline companies and other airports also have an interest in the escort s
 In the worst case, there is little time between arrival of plane 1 and depart of plane 2. A time efficient service would be necessary to realize this. Also an estimation on when a disables person with escort arrives is pleasant to know when an escort approximately arrives. Clearly, this should be as efficient as possible and hence efficiency is also an interest.\\
 Reliability is also an interest for other airline companies and airports. Being sure when an escort arrives is necessary in order to make it possible for other airline companies to depart on time when there is a transfer with escort service. If it is uncertain if the passenger will arrive on time, it is cheaper for an airline company to let the plane depart and put the escorted person on a plane departing later than to miss the timeslot in which the plane was supposed to leave with all (worse) economic consequences as result. Therefore reliability of the escort service is also of interest for other airports and other airline companies.
 \newpage
-\section{Relation between keydrivers}
+\section{Relations between the keydrivers}
 The keydrivers do also have a relation with other keydrivers than only with stakeholders. These can be summarized as follows:
 \begin{center}
+\begin{figure}[!h]
+	\caption{Relations between the keydrivers}
 	\includegraphics[scale=0.45]{figures/relationkeydrivers.jpg}
+\end{figure}
 \end{center}
 The arrows should be read that keydriver $k$ has in incoming arrow from $k'$, and $k'$ has and incoming arrow from $k"$, $k$ is in a relation with $k"$. So there is transitivity between the elements.
 \subsection{Reliability}
@@ -310,6 +316,8 @@ As one can see, all of the quantities are either usable to determine the eventua
 
         \subsection{Distance between gates}
         The distance the escorts walk between the gates depends on the exact path they take. This path is different every time, because it depends on the number of people at the airport. On a busy day, the escorts have to go left and right to go around the people. This increases the travelled distance. This is impossible to keep in mind when creating the model. Therefore the distance between two gates is a constant value.
+		
+		\subsection{Quality function} We assume that quality of a service deceases linear. This is very much alike how we perceive quality. It is denoted as school grades, ranging from 0 to 10. 
 
 	\section{Assumptions}
 		\subsection{Escort exhaustion} For the model the assumption holds that the escorts will never tire. This means that the morning hours of an escort are just as productive as his final hours. This assumption is necessary, because humans do not all tire in the same way. There will be huge differences between escorts and these will be nearly impossible to calculate. There are scenarios in which the exhaustion rate of the escorts is nearly zero. For instance, the scenario with world-class athletes as escorts.
@@ -321,6 +329,8 @@ As one can see, all of the quantities are either usable to determine the eventua
 \chapter{Derivations}
 	\section{Formulas}
 \begin{description}
+	\item $Quality = 10-\frac{NrDisabled}{NrEscorts}$
+	\item[Explanation:] Quality decreases with every person handled by the escort. The more people one escorts transports the less time can be spend building a relation with the customer, so the quality decreases. 
 	\item $Costs = CostEscorts + CostMaintainers + CostMaintanance + CostDecrease$
 	\item[Explanation:] These costs come from the conceptual model. They are all the costs.
 	\item $CostEscorts = Salary * NrEscorts$
@@ -353,12 +363,13 @@ As one can see, all of the quantities are either usable to determine the eventua
 	\item $Costs = \frac{2*distance*NrDisabled}{(Vescort*TimeBetweenFlights)} * \\ \\(Salary + \frac{Salary}{WheelchairsPerMaintainer} + \frac{3* TimeBetweenFlights * TotalCostWheelchair}{2*TimeTillDestruction}$
 	\item[Explanation:] Substitution gives us our final equation.
 	\item
-	%make purgy
+
 \end{description}
 
 
 \subsection{Domains}
 	\begin{description}
+		\item[Quality] $[0,10]$ Quality is like grades at the TU Eindhoven. With 10 being the highest value and 0 the lowest. A higher grade is better.
 		\item[Distance] $(0,\infty)$ The distance between the flights can be as large as we want it to be, but it cannot be infinite, negative or 0. This is because the domain or TimeBetweenFlights depends on this distance and cannot be zero. Thus if we exclude 0 from the domain of the distance we prevent a division by zero error in the domain of TimeBetweenFlights.
 		\item[NrDisabled] $[0,853 ]$ The biggest passenger aircraft in the world, the Airbus A380 can fly 853 people ~\cite{ref3}. This becomes the upper bound to this domain, with zero disabled people as the lower bound.   %source: http://nl.wikipedia.org/wiki/Airbus_A380 oeps... wikipedia...
 		\item[Vescort] $(0,10.8]$ 10.8km/h (3m/s) is a really fast military pace, which is possible for some people. There is not a physical possibility to walk $0km/h$, thus this is excluded from the domain, as well as all the negative numbers.
@@ -588,7 +599,7 @@ Cost = \frac{c_1}{TimeTillDestruction}+ c_2
 where both $c_1$ and $c_2$ are constants. This shows that the relation is a fractional relation between the Cost and the TimeTillDesctruction which is in accordance to the concave up graph.\\
 Figure 16.3 shows a graph which looks similar to a plotted trigonometric function, with the angle measured in degrees. However when the functions are consulted, non such function can be derived. But when looking at the range of the graph, there is a fluctuation of 0.01 Euro cents. Zooming out on the graph results then also in a straight line\footnote{by approximation}. When going through the model more thoroughly, the model uses for some properties float-based inputs. While this theoretical number is allowed to be entered into the model, in real life this would not be realistic. Also the earlier mentioned fluctuation is not of significance for the payment of the personnel, since this amount is rounded off to cents only, not to hundredths of cents. Hence, it is allowed to regard the obtained graph as a straight line.
 \clearpage
-\section*{The optimal solution}
+\section{The optimal solution}
 By using the Genetic Optimization function of Accel, it is possible to archive an optimal solution where there is a distribution between the cost and the quality of the service. The obtained result of the Accel-function can be found below.
 \begin{wrapfigure}{r}{0.5\textwidth}
   \begin{center}
@@ -662,6 +673,15 @@ Of course accel will try to put the salaries to zero since that would be the mos
 	\section{The graphs}
 	The graph in figure 16.3 has a lot of spikes in it. This happens because of a floating point division. In a real life scenario this will not be a problem, because the fluctuations it causes are insignificant(0.01 cents).
 	
+	\section{The variables}
+	At first there were sliders for all variables, but this turned out to be a problem. When trying to optimize with pareto, the program would simply set one of the variables to 0 to get the most optimal cost. It was necessary to set some of them to a constant value in order to avoid this problem. Therefore we made the variables SalaryPerHour, Distance, NrDisabled and TimeBetweenFlights a constant value in the model it self. Now to change those inputs, they have to be changed in the model itself and not by using sliders.
+	
+	\section{Units}
+		\subsection{Distance}
+		The unit for distance that was chosen for the accel model to do the calculation with was kilometres. However this would mean that the distance between gates also had to be input in kilometres. Since it is not really accurate to do it this way, the decision was made to change the input to metres and then add another formula to change it back to kilometres(double) to do the calculation with.
+		\subsection{TimeTillDestruction}
+		The time until destruction is measured in hours in the model. The problem is that the range of this value is from 1 to 10 years, which is 87600 hours. When controlling this with a slider, it is not only to put it on a specific value. Most people also have no idea how long, for example, 56900 hours is. This is why the slider was changed to display in years and another formula is added to change it to hours.
+		
 \chapter{Discussion after the solution of the initial problem}
 So for the last time, can it be argued that our model suffices the purpose? The model created does solve the formulated problem, by the fact that given the required input the model produces an outcome which states which resources are required to have the transfer depart on time. From the model can be obtained how many escorts there are required, the number of maintainers and the number of wheelchairs required. Therefore the model solves the initial problem.
 \chapter{Extension}
@@ -715,22 +735,66 @@ I am proud of the final product we produced. Although not every moment we worked
 \section*{C. v. Horssen} During this course I have learned how github works, also I learned how the process of creating a model works and what you should take in mind while designing a model. There is some calculus with multiple variables in the course as well, this was new to me and I found this very interesting.
 
 \section*{Y. Haenen}
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 The most valuable thing I have learned during the course and the modeling project is the fact that tough the description of the problem can be vague, the final product can still be an accurate solution to the given problem, using the explained steps of the course. Also, I learned that although everyone works on a tiny bit of the overall product to be produced, the final product can still be of a sustainable level.
 
 \chapter*{Appendix}
 \chapter{References}
 
+<<<<<<< HEAD
 
 
 \bibliography{references}{}
 \bibliographystyle{plain}
+=======
+\bibliography{references}
+
+The most valuable thing I have learned during the course and the modelling project is the fact that tough the description of the problem can be vague, the final product can still be an accurate solution to the given problem, using the explained steps of the course. Also, I learned that although everyone works on a tiny bit of the overall product to be produced, the final product can still be of a sustainable level.
+>>>>>>> origin/master
 
 \chapter{Used literature}
 
-\chapter{List of definitions}
+\chapter{List of Defenitions}
+\begin{description}
 
+  \item[CostDecrease] The write-off of the wheelchairs.
+  \item[CostEmployed] The salary of all employees.
+  \item[CostEscorts] The total salary of all escorts needed for the modeled transfer.
+  \item[CostMaintainers] The total salary of all maintainers involved in the transfer.
+  \item[CostMaintenance] The costs of the maintenance of the wheelchairs.
+  \item[Costs] The total amount of costs KLM should make for the wheelchair service of the modeled transfer.
+  \item [CostWeelchairPerSecond] The costs of a new wheelchair divided by the time it can be used.
+  \item[DisabledPeople] The amount of disabled people which need to make the transfer and need to make use of the wheelchair service.
+  \item[Distance] The amount of meters from gate of arrival to gate of departure.
+  \item[Escorts] The people pushing the wheelchairs.
+  \item[Maintainers] The people who maintain the wheelchairs.
+  \item[NrDisabled] The amount of disabled people which need to make the transfer and need to make use of the wheelchair service.
+  \item[NrEmployed] The amount of employees.
+  \item[NrEscorts] The amount of escorts needed for the modeled trasfer.
+  \item[NrMaintainers] The amount of maintainers involved in the transfer.
+  \item[NrWheelchairs] The amount of wheelchairs needed for the modeled transfer.
+  \item[Passengers] The passengers who need a wheelchair and escort to get to a transfer flight.
+  \item[Quality] The quality of the wheelchair service.
+  \item[Salary] The amount of money a employee gets per hour.
+  \item[Speed] The amount of meters a escort can walk in one second.
+  \item[TimeBetweenFlights] The time in seconds form arrival to departure of the transfer flight.
+  \item[TimeTillDistruction] The amount of time a wheelchair can be used before it needs replacement.
+  \item[TotalCostWheelchair] The price of a new wheelchair.
+  \item[TotalDistance] The total distance all escorts together should cover to get all disabled to the transfer flight.
+  \item[TotalDistance1Escort] The maximum of distance one escort can cover in the time between the arrival and departure of the passenger.
+  \item[Vescort] The average speed of a escort.
+  \item[WheelchairsPerMaintainer] The amount of wheelchairs one maintainer maintenances.
+\end{description}
+
+<<<<<<< HEAD
 \chapter{List of illustrations}
 
+=======
+\listoffigures
+>>>>>>> origin/master
 %%%%%%%%% INFORMATION %%%%%%%%%%
 % \section{A Note About References}
 
