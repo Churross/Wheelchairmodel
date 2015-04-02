@@ -27,7 +27,7 @@ The report on the wheelchair problem of airline companies % change this
 \\[12pt]
 Supervised by: I. Papaliouras \\ Assessor: J. Nederhof % change this
 \\[12pt]
-This document contains 3 appendices.
+This document contains 4 appendices.
 \end{center}
 \thispagestyle{empty}
 \newpage
@@ -46,10 +46,11 @@ This document contains 3 appendices.
 
 % \chapter{Description of modeling process}
 \pagebreak
-\section{Summary}
+\setcounter{chapter}{+4}
+\chapter{Summary}
 	When a plane arrives at an airport there are people that need wheelchairs to get to their next flight. These wheelchairs require pushing, which is done by escorts, which are paid by KLM. The KLM wants a model to minimize the cost, but maximise the quality of their service. We investigated all the stakeholders, relations between quantities and formalised these relations. We devised a method that would eliminate a great amount of costs. The implementation resulted in a Pareto graph, that gives a nice dominant curve between quality and costs. KLM can pick any of those solutions.
 
-\setcounter{chapter}{+5}
+
 \chapter{Context}
 \section{The Stakeholders and the keydrivers }
 The stakeholders are:
@@ -305,6 +306,23 @@ As one can see, all of the quantities are either usable to determine the eventua
 	\item[Unit:] Integer
 	\item[Role:] Constant  (Category 3)
 	\end{description}
+	
+	\section{Quality}
+	\begin{description}
+	\itemsep0em
+	\item[Property:]Quality
+	\item[Unit:] Integer
+	\item[Role:] To optimize  (Category 2)
+	\end{description}
+	
+	\section{KLM}
+	\begin{description}
+	\itemsep0em
+	\item[Property:] Cost
+	\item[Unit:] Euro
+	\item[Role:] To optimize  (Category 2)
+	\end{description}
+	\nopagebreak
 	\section{Summary Table}
 	\includegraphics[scale=0.8]{Table1.pdf}
 	\newpage \includegraphics[scale=0.8]{Table2.pdf}
@@ -381,38 +399,6 @@ As one can see, all of the quantities are either usable to determine the eventua
 		\item[TimeTillDestruction] $(0,\infty)$ Cannot be zero, because of the division by zero limitation. And it has to be positive. Thus this domain comes into existence.
 	\end{description}
 	
-	
-\subsection{Summary table}
-\begin{table}[h]
-\begin{tabular}{|l|l|l|}
-\hline
-Property                 & Unit     & Functions                                                          \\ \hline
-Cost                      & \euro    & CostEscorts+CostMaintainers+CostMaintanance+\\ CostDecrease \\ \hline
-CostEscorts              & \euro    & Salary * NrEscorts                                   \\ \hline
-CostMaintainers          & \euro    & Salary *NrMaintainers                         \\ \hline
-Salary                   & \euro    & SalaryPerHour * TimeBetweenFlights                          \\ \hline
-NrEscorts                & -        & TotalDistance/TotalDistance1Escort                     \\ \hline
-NrMaintainers            & -        & NrWheelchairs/WheelchairsPerMaintainer             \\ \hline
-NrWheelchairs            & -        & NrEscorts                                            \\ \hline
-CostMaintanance          & -        & CostDecrease/2                                   \\ \hline
-TotalDistance            & m        & 2* distance *NrDisabled                        \\ \hline
-TotalDistance1Escort     & m        & Vescort *TimeBetweenFlights                   \\ \hline
-NrEscorts                & -        & TotalDistance/TotalDistance1Escort                       \\ \hline
-CostDecrease             & \euro    & CostWheelchairPerHour*TimeBetweenFlights*NrEscorts \\ \hline
-CostWheelchairPerHour    & \euro /h & TotalCostWheelchair/TimeTillDestruction     \\ \hline
-                         &          &                                                                    \\ \hline
-TotalCostWheelchair      & \euro    & Slider                                                             \\ \hline
-TimeTillDestruction      & h        & Adjustable in model
-\\ \hline
-WheelchairsPerMaintainer & -        & Slider                                                             \\ \hline
-TimeBetweenFlights       & h        & Adjustable in model
-\\ \hline
-Vescort                  & km/h     & Slider                                                             \\ \hline
-NrDisabled               & -        & Adjustable in model
-\\ \hline
-Distance                 & km       & adjustable in model                                                             \\ \hline
-\end{tabular}
-\end{table}
 \chapter{Special cases}
 \section{Employees and maintainers}
 The salary is in euro's/hour. This means the more hours are being worked, the more the cost for the KLM will be. Except for when the people work for free. So if they are volunteers.\\
@@ -486,13 +472,13 @@ Totaldistance1Escort= Vescort * TimeBetweenFlights
 
 \subsection{Same gate}
 The nearest gate to drop of someone is the gate he arrives at. This means the distance is zero so no distance, so no escort is needed to push that person to the gate. Even if there are a hundred disabled people, even if it is a plane full of disabled people and you have 10 transfer seconds, you still do not need any escorts, because they already are at the place they need to be.
-\subsection{furthest gate}
+\subsection{Furthest gate}
 The gate which is most distant. If you only need to take one person there, you also only need one person to push him there. If there are multiple people who need to go to the most distant gate, you will need more people. It is only possible to push one person at a time for a escort. This means that if the plane is full of disabled people, you will need 853 escorts to push all those people to the same place. If the time in which this has to be done is really small and actually not realistic, only then it is allowed to prioritize other planes and let some people wait. There is no other reason why people should have to wait.
 \subsection{No disabled people}
 If there are no disabled people, no escorts are needed, so no extra money is involved in a flight.
 \subsection{Plane full of disabled people}
 A plane full of disabled people contains approximately 853 people. All those people need to be brought to the right gate. There are no mistakes allowed, else multiple planes might have a delay. So 853 escorts are needed to bring all those people to different or the same gate.
-\section{wheelchairs}
+\section{Wheelchairs}
 Wheelchairs have two functions, one for the price and one for the devaluing of the wheelchair. What if a wheelchair is free or really expensive and what if they do not decrement or they are immediately worthless?\\
 \begin{equation}
 CostWheelchairs = Price * AmountOfWheelchairs
@@ -510,7 +496,7 @@ CostMaintenance = \frac{CostDecrease}{2}
 If the wheelchairs are free, no wheelchair maintainers are needed. So wheelchairs will actually cost nothing.
 \subsection{No decrement}
 If the value of a wheelchair does not decrement, they can be sold for the same price as you have bought them. This also means that wheelchairs will never be broken too much. So they will live forever.
-\subsection{immediately valueless}
+\subsection{Immediately valueless}
 If wheelchairs are immediately valueless after you have bought them, it is best to check the duration of a wheelchair and decide after that whether or not to buy a new wheelchair or fix the wheelchair.
 \chapter{Estimates}
     \section{Speed of Escorts}
@@ -689,7 +675,7 @@ So for the last time, can it be argued that our model suffices the purpose? The 
 If we had another week we would make the model more extensive and probably do more research, such that we know for sure that we have not forgotten anything. That means we really want to know whether or not we have found al variables that are on influence on the cost of an airport. With an extra week it would also be possible to check for importance of cost, priority. For example the cost of  salary is in comparison to the cost of a delayed plane not as much. This one we have already implemented in the report, but with an extra week we could check for more of these things. If we find more of those things our model gets more precise, which is really nice for the KLM.
 
 \chapter{Necessity for Improvement}
-We think our model needs to be improved on Convincingness. There are more things where the model can be improved, but on this aspect the model should actually be improved.
+We think our model needs to be improved on convincingness. There are more things where the model can be improved, but on this aspect the model should actually be improved.
 \section{Convincingness}
 There are special cases in our model which are not very likely to happen, it might not be really convincing to take these cases into account. On this point there is room for improvements.
 \chapter{Possibilities for Improvement}
@@ -703,7 +689,7 @@ There are special cases in our model which are not very likely to happen, it mig
     So because it is for the KLM, and to be more specific for the board of the KLM, we do not think it will be a big audience. Also we hope the audience has at least a little bit of knowledge of the basic subject. Because of all this we can implement more specialization. Also we can have more contact with the group such that we can skip subjects of the model, because they are already known, or we could stick longer to a subject to make it more clear.
 \section{Convincingness}
     This might be one of the few parts which might be improved. We have made some assumptions in the special cases which are possible, but the probability is really low. So there might be a time where it will happen, but the current board of KLM will probably never experience something like this and for the next board the probability is also really low. So those assumptions are possible but not probable.
-\section{distinctiveness}
+\section{Distinctiveness}
     We tried to make a lot of variation between alternatives, sometimes really small variations, but we still think it is possible to improve some things.
 \section{Surprise}
     There exist a lot of numbers which might not even exist in the future or that may depend on completely different things in the future. For now the numbers halt and it has an open outcome. In the future it will probably still be an open outcome, but the numbers might differ from what they are now. for example planes are a lot safer, and bigger. So more people will fly by plane and they might all fit in half of the planes we use now.
