@@ -1,0 +1,44 @@
+ 
+\\ Cost is a function of CostEscorts, CostMaintenance, CostMaintainers and CostDecrease
+\\ we use pareto to minimize the cost, plotting it horizontally
+Cost=paretoHor(paretoMin(CostEscorts+CostMaintainers+CostMaintenance+CostDecrease)) ;
+
+\\quality depends on how many disabled people an escort takes, and more means less quality
+\\quality can never be less then zero so we take the max of the quality formula and zero
+\\ we use pareto to maximize quality, plotting it vertically
+quality=paretoVer(paretoMax(max(0,10-NrDisabled/NrEscorts)))
+
+\\these functions are the formal relationships established in the report
+CostEscorts=Salary*NrEscorts 
+CostMaintainers=Salary*NrMaintainers 
+CostMaintenance=CostDecrease/2.0 
+TotalDistance=2*DistanceKM*NrDisabled 
+TotalDistance1Escort=Vescort*TimeBetweenFlights 
+NrEscorts=TotalDistance/TotalDistance1Escort 
+NrMaintainers=NrWheelchairs/WheelchairsPerMaintainer 
+NrWheelchairs=NrEscorts 
+CostDecrease=CostWheelchairPerHour*TimeBetweenFlights*NrEscorts 
+CostWheelchairPerHour=TotalCostWheelchair/TimeTillDestruction 
+Salary=SalaryPerHour*TimeBetweenFlights 
+
+\\constants and sliders
+\\salary per hour is needed to calculate total salary during a trip
+SalaryPerHour=20; Euro/hour 
+\\ distance between the gates is defined in meters, yet we need kilometres in the equations
+DistanceM=100 
+\\ so we make kilometres of them
+DistanceKM=DistanceM/1000 
+\\ the number of disabled is given for any situation
+NrDisabled=10 
+
+\\speed of the escort
+\\ we can make the escorts walk faster, so we want to be able to set this
+\\ a slider is used to define speed of the escort, for it's entire range
+Vescort=slider(0.0001,0.0001,10.8); km/hour 
+\\time between the flights is something we cannot influence so constant
+TimeBetweenFlights=1; hour 
+\\ we can influence these variables, so we use sliders to define them
+WheelchairsPerMaintainer=slider(0.0001,0.0001,48) 
+TotalCostWheelchair=slider(0.0001,0.0001,1000); Euro 
+TimeTillDestructionPerYear=slider(0.0001,0.0001,10); year 
+TimeTillDestruction=TimeTillDestructionPerYear*8760
