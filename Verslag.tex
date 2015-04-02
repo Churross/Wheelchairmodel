@@ -2,8 +2,9 @@
 %nothing
 \usepackage{amsfonts} % if you want blackboard bold symbols e.g. for real numbers
 \usepackage{graphicx} % if you want to include jpeg or pdf pictures
-\usepackage{geometry}
+\usepackage{geometry,listings}
 \usepackage{wrapfig}
+\usepackage[toc,page]{appendix}
 \makeatletter
 \renewcommand\@biblabel[1]{\textbf{#1.}} % Change the square brackets for each bibliography item from '[1]' to '1.'
 \renewcommand{\@listI}{\itemsep=0pt} % Reduce the space between items in the itemize and enumerate environments and the bibliography
@@ -735,27 +736,16 @@ I am proud of the final product we produced. Although not every moment we worked
 \section*{C. v. Horssen} During this course I have learned how github works, also I learned how the process of creating a model works and what you should take in mind while designing a model. There is some calculus with multiple variables in the course as well, this was new to me and I found this very interesting.
 
 \section*{Y. Haenen}
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/master
-The most valuable thing I have learned during the course and the modeling project is the fact that tough the description of the problem can be vague, the final product can still be an accurate solution to the given problem, using the explained steps of the course. Also, I learned that although everyone works on a tiny bit of the overall product to be produced, the final product can still be of a sustainable level.
+The most valuable thing I have learned during the course and the modelling project is the fact that tough the description of the problem can be vague, the final product can still be an accurate solution to the given problem, using the explained steps of the course. Also, I learned that although everyone works on a tiny bit of the overall product to be produced, the final product can still be of a sustainable level.
 
-\chapter*{Appendix}
-\chapter{References}
-
-<<<<<<< HEAD
+\begin{appendices}
 
 
 \bibliography{references}{}
 \bibliographystyle{plain}
-=======
+
 \bibliography{references}
-
-The most valuable thing I have learned during the course and the modelling project is the fact that tough the description of the problem can be vague, the final product can still be an accurate solution to the given problem, using the explained steps of the course. Also, I learned that although everyone works on a tiny bit of the overall product to be produced, the final product can still be of a sustainable level.
->>>>>>> origin/master
-
-\chapter{Used literature}
 
 \chapter{List of Defenitions}
 \begin{description}
@@ -789,17 +779,66 @@ The most valuable thing I have learned during the course and the modelling proje
   \item[WheelchairsPerMaintainer] The amount of wheelchairs one maintainer maintenances.
 \end{description}
 
-<<<<<<< HEAD
+
 \chapter{List of illustrations}
 
-=======
+\chapter{Accel model}
+\begin{lstlisting}
+	 
+\\ Cost is a function of CostEscorts, 
+\\ CostMaintenance, CostMaintainers and CostDecrease
+\\ we use pareto to minimize the cost, plotting it horizontally
+Cost=paretoHor(paretoMin(
+	CostEscorts+CostMaintainers+CostMaintenance+CostDecrease)) ;euro
+
+\\ quality depends on how many 
+\\ disabled people an escort takes, and more means less quality
+\\ quality can never be less then 
+\\ zero so we take the max of the quality formula and zero
+\\ we use pareto to maximize quality, plotting it vertically
+quality=paretoVer(paretoMax(max(0,10-NrDisabled/NrEscorts)))
+
+\\ these functions are the formal relationships established in the report
+CostEscorts=Salary*NrEscorts ;euro
+CostMaintainers=Salary*NrMaintainers ;euro
+CostMaintenance=CostDecrease/2.0  ;euro
+TotalDistance=2*DistanceKM*NrDisabled ;km
+TotalDistance1Escort=Vescort*TimeBetweenFlights ;km
+NrEscorts=TotalDistance/TotalDistance1Escort 
+NrMaintainers=NrWheelchairs/WheelchairsPerMaintainer 
+NrWheelchairs=NrEscorts 
+CostDecrease=CostWheelchairPerHour*TimeBetweenFlights*NrEscorts ;euro 
+CostWheelchairPerHour=TotalCostWheelchair/TimeTillDestruction ;euro/hour
+Salary=SalaryPerHour*TimeBetweenFlights ;euro
+
+\\ constants and sliders
+\\ salary per hour is needed to calculate total salary during a trip
+SalaryPerHour=20; Euro/hour 
+\\ distance between the gates is defined in meters, 
+\\ yet we need kilometres in the equations
+DistanceM=100 
+\\ so we make kilometres of them
+DistanceKM=DistanceM/1000 ;km
+\\ the number of disabled is given for any situation
+NrDisabled=10 
+
+\\ speed of the escort
+\\ we can make the escorts walk faster, so we want to be able to set this
+\\ a slider is used to define speed of the escort, for it's entire range
+Vescort=slider(0.0001,0.0001,10.8); km/hour 
+\\ time between the flights is something we cannot influence so constant
+TimeBetweenFlights=1; hour 
+\\ we can influence these variables, so we use sliders to define them
+WheelchairsPerMaintainer=slider(0.0001,0.0001,48) 
+TotalCostWheelchair=slider(0.0001,0.0001,1000); euro 
+TimeTillDestructionPerYear=slider(0.0001,0.0001,10)
+TimeTillDestruction=TimeTillDestructionPerYear*8760; hour
+\end{lstlisting}
+
+\end{appendices}
+
 \listoffigures
-<<<<<<< HEAD
 
-
-=======
->>>>>>> origin/master
->>>>>>> 7fb62506b76d67879cc8a837dc74ba6c733fd992
 %%%%%%%%% INFORMATION %%%%%%%%%%
 % \section{A Note About References}
 
