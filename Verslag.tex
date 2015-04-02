@@ -309,6 +309,8 @@ As one can see, all of the quantities are either usable to determine the eventua
 
         \subsection{Distance between gates}
         The distance the escorts walk between the gates depends on the exact path they take. This path is different every time, because it depends on the number of people at the airport. On a busy day, the escorts have to go left and right to go around the people. This increases the travelled distance. This is impossible to keep in mind when creating the model. Therefore the distance between two gates is a constant value.
+		
+		\subsection{Quality function} We assume that quality of a service deceases linear. This is very much alike how we perceive quality. It is denoted as school grades, ranging from 0 to 10. 
 
 	\section{Assumptions}
 		\subsection{Escort exhaustion} For the model the assumption holds that the escorts will never tire. This means that the morning hours of an escort are just as productive as his final hours. This assumption is necessary, because humans do not all tire in the same way. There will be huge differences between escorts and these will be nearly impossible to calculate. There are scenarios in which the exhaustion rate of the escorts is nearly zero. For instance, the scenario with world-class athletes as escorts.
@@ -320,6 +322,8 @@ As one can see, all of the quantities are either usable to determine the eventua
 \chapter{Derivations}
 	\section{Formulas}
 \begin{description}
+	\item $Quality = 10-\frac{NrDisabled}{NrEscorts}$
+	\item[Explanation:] Quality decreases with every person handled by the escort. The more people one escorts transports the less time can be spend building a relation with the customer, so the quality decreases. 
 	\item $Costs = CostEscorts + CostMaintainers + CostMaintanance + CostDecrease$
 	\item[Explanation:] These costs come from the conceptual model. They are all the costs.
 	\item $CostEscorts = Salary * NrEscorts$
@@ -352,12 +356,13 @@ As one can see, all of the quantities are either usable to determine the eventua
 	\item $Costs = \frac{2*distance*NrDisabled}{(Vescort*TimeBetweenFlights)} * \\ \\(Salary + \frac{Salary}{WheelchairsPerMaintainer} + \frac{3* TimeBetweenFlights * TotalCostWheelchair}{2*TimeTillDestruction}$
 	\item[Explanation:] Substitution gives us our final equation.
 	\item
-	%make purgy
+
 \end{description}
 
 
 \subsection{Domains}
 	\begin{description}
+		\item[Quality] $[0,10]$ Quality is like grades at the TU Eindhoven. With 10 being the highest value and 0 the lowest. A higher grade is better.
 		\item[Distance] $(0,\infty)$ The distance between the flights can be as large as we want it to be, but it cannot be infinite, negative or 0. This is because the domain or TimeBetweenFlights depends on this distance and cannot be zero. Thus if we exclude 0 from the domain of the distance we prevent a division by zero error in the domain of TimeBetweenFlights.
 		\item[NrDisabled] $[0,853 ]$ The biggest passenger aircraft in the world, the Airbus A380 can fly 853 people. This becomes the upper bound to this domain, with zero disabled people as the lower bound.   %source: http://nl.wikipedia.org/wiki/Airbus_A380 oeps... wikipedia...
 		\item[Vescort] $(0,10.8]$ 10.8km/h (3m/s) is a really fast military pace, which is possible for some people. There is not a physical possibility to walk $0km/h$, thus this is excluded from the domain, as well as all the negative numbers.
