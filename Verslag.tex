@@ -661,6 +661,15 @@ Of course accel will try to put the salaries to zero since that would be the mos
 	\section{The graphs}
 	The graph in figure 16.3 has a lot of spikes in it. This happens because of a floating point division. In a real life scenario this will not be a problem, because the fluctuations it causes are insignificant(0.01 cents).
 	
+	\section{The variables}
+	At first there were sliders for all variables, but this turned out to be a problem. When trying to optimize with pareto, the program would simply set one of the variables to 0 to get the most optimal cost. It was necessary to set some of them to a constant value in order to avoid this problem. Therefore we made the variables SalaryPerHour, Distance, NrDisabled and TimeBetweenFlights a constant value in the model it self. Now to change those inputs, they have to be changed in the model itself and not by using sliders.
+	
+	\section{Units}
+		\subsection{Distance}
+		The unit for distance that was chosen for the accel model to do the calculation with was kilometres. However this would mean that the distance between gates also had to be input in kilometres. Since it is not really accurate to do it this way, the decision was made to change the input to metres and then add another formula to change it back to kilometres(double) to do the calculation with.
+		\subsection{TimeTillDestruction}
+		The time until destruction is measured in hours in the model. The problem is that the range of this value is from 1 to 10 years, which is 87600 hours. When controlling this with a slider, it is not only to put it on a specific value. Most people also have no idea how long, for example, 56900 hours is. This is why the slider was changed to display in years and another formula is added to change it to hours.
+		
 \chapter{Discussion after the solution of the initial problem}
 So for the last time, can it be argued that our model suffices the purpose? The model created does solve the formulated problem, by the fact that given the required input the model produces an outcome which states which resources are required to have the transfer depart on time. From the model can be obtained how many escorts there are required, the number of maintainers and the number of wheelchairs required. Therefore the model solves the initial problem.
 \chapter{Extension}
