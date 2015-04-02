@@ -4,9 +4,10 @@
 \usepackage{graphicx} % if you want to include jpeg or pdf pictures
 \usepackage{geometry}
 \usepackage{wrapfig}
-
-
-
+\makeatletter
+\renewcommand\@biblabel[1]{\textbf{#1.}} % Change the square brackets for each bibliography item from '[1]' to '1.'
+\renewcommand{\@listI}{\itemsep=0pt} % Reduce the space between items in the itemize and enumerate environments and the bibliography
+\usepackage{cite}
 \usepackage{amsmath}
 \usepackage[hidelinks]{hyperref}
 \usepackage[official]{eurosym}
@@ -370,7 +371,7 @@ As one can see, all of the quantities are either usable to determine the eventua
 	\begin{description}
 		\item[Quality] $[0,10]$ Quality is like grades at the TU Eindhoven. With 10 being the highest value and 0 the lowest. A higher grade is better.
 		\item[Distance] $(0,\infty)$ The distance between the flights can be as large as we want it to be, but it cannot be infinite, negative or 0. This is because the domain or TimeBetweenFlights depends on this distance and cannot be zero. Thus if we exclude 0 from the domain of the distance we prevent a division by zero error in the domain of TimeBetweenFlights.
-		\item[NrDisabled] $[0,853 ]$ The biggest passenger aircraft in the world, the Airbus A380 can fly 853 people. This becomes the upper bound to this domain, with zero disabled people as the lower bound.   %source: http://nl.wikipedia.org/wiki/Airbus_A380 oeps... wikipedia...
+		\item[NrDisabled] $[0,853 ]$ The biggest passenger aircraft in the world, the Airbus A380 can fly 853 people ~\cite{ref3}. This becomes the upper bound to this domain, with zero disabled people as the lower bound.   %source: http://nl.wikipedia.org/wiki/Airbus_A380 oeps... wikipedia...
 		\item[Vescort] $(0,10.8]$ 10.8km/h (3m/s) is a really fast military pace, which is possible for some people. There is not a physical possibility to walk $0km/h$, thus this is excluded from the domain, as well as all the negative numbers.
 		\item[TimeBetweenFlights] First compute $\frac{2*distance}{Vescort} = c$ then the domain for the time becomes $(c,\infty)$ %dynamic domain.
 		\item[Salary] $[0,\infty)$ Any non-negative number would do fine.
@@ -514,8 +515,8 @@ If wheelchairs are immediately valueless after you have bought them, it is best 
     \section{Speed of Escorts}
     The average walking speed of humans aged 14 to 64 is about 1.25 m/s  ($=$4.5 km/h). Since the escorts will have to take a wheelchair with them and it will be harder to move a wheelchair during rush hours the average speed of escorts will be estimated 1.19 m/s ($=$4.3 km/h).
     \section{Salary}
-    According to this article\footnote{https://disabledaccessdenied.wordpress.com/2012/10/08/airport-wheelchair-fakes-are-making-life-hard-for-disabled-travellers/} the escorts earn something in between \$9 and \$14 an hour. So the estimated average would be \$11.50, which is about \euro{10.25}.\\
-    According to this article\footnote{http://work.chron.com/average-wage-wheelchair-repair-19790.html} the average salary of wheelchair maintenance is \$23.99 an hour, this is about \euro{21.39}.\\
+    According to this article ~\cite{ref1} the escorts earn something in between \$9 and \$14 an hour. So the estimated average would be \$11.50, which is about \euro{10.25}.\\
+    According to this article ~\cite{ref2} the average salary of wheelchair maintenance is \$23.99 an hour, this is about \euro{21.39}.\\
     Since there are way less wheelchair maintainers needed compared to escorts, the estimated salary will be \euro{12,-}.
     \section{New price for wheelchairs}
     New wheelchairs of acceptable quality are in a price range of \euro{275,-} to \euro{400,-}, more expensive would not be necessary, cheaper will bring the quality to low. Since there has to be a certain ratio between quality and cost: better quality results in happier customers, and probably less maintenance and a longer lifetime, however this would cause the costs to rise. The estimate of the cost of a wheelchair with a good quality/cost ratio is \euro{340,-}
@@ -560,7 +561,7 @@ Initially, we just put the formulas that are mentioned in the derivation into Ac
     \item TimeTillDestructionPerYear
     \end{itemize}
 
-\vspace{-4pt}These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (NrDisabled, Distance, TimeBetweenFlights, WheelchairsPerMaintainer and SalaryPerHour) have been made constant (so a category 3 property), in order to create a real life situation. To retrieve an optimized solution for the model, an extra category 2 property has been added as well as two pareto functions. This added property is the quality (defined by a Pareto function) and the added Pareto functions are:
+\vspace{-4pt}These values can be adjusted by the KLM so they can see the cost associated with those values. But when trying to calculate the optimal values using Genetic Optimization, proposed inputs for the category one inputs as salary, number of disabled people and distance etc. are to be 0 to create minimal solutions. Some of them (NrDisabled\cite{ref5}, Distance\footnote{This distance is an estimate obtained by analyzing the maximum\cite{ref7} and taking a "reasonable" average}, TimeBetweenFlights\cite{ref6} and SalaryPerHour\cite{ref2}) have been made constant (so a category 3 property), in order to create a real life situation, as well as setting an upper bound to the TimeTillDestruction\cite{ref4}. To retrieve an optimized solution for the model, an extra category 2 property has been added as well as two pareto functions. This added property is the quality (defined by a Pareto function) and the added Pareto functions are:
 
 \begin{center}
 \vspace{-4pt}$Cost=paretoHor(paretoMin(CostEscorts+CostMaintainers+$\\$CostMaintenance+CostDecrease))$
@@ -734,16 +735,25 @@ I am proud of the final product we produced. Although not every moment we worked
 \section*{C. v. Horssen} During this course I have learned how github works, also I learned how the process of creating a model works and what you should take in mind while designing a model. There is some calculus with multiple variables in the course as well, this was new to me and I found this very interesting.
 
 \section*{Y. Haenen}
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/master
 The most valuable thing I have learned during the course and the modeling project is the fact that tough the description of the problem can be vague, the final product can still be an accurate solution to the given problem, using the explained steps of the course. Also, I learned that although everyone works on a tiny bit of the overall product to be produced, the final product can still be of a sustainable level.
 
-\chapter{Appendix}
-\section{References}
-\bibliographystyle{unsrt}
+\chapter*{Appendix}
+\chapter{References}
 
+<<<<<<< HEAD
+
+
+\bibliography{references}{}
+\bibliographystyle{plain}
+=======
 \bibliography{references}
 
 The most valuable thing I have learned during the course and the modelling project is the fact that tough the description of the problem can be vague, the final product can still be an accurate solution to the given problem, using the explained steps of the course. Also, I learned that although everyone works on a tiny bit of the overall product to be produced, the final product can still be of a sustainable level.
+>>>>>>> origin/master
 
 \chapter{Used literature}
 
@@ -779,9 +789,17 @@ The most valuable thing I have learned during the course and the modelling proje
   \item[WheelchairsPerMaintainer] The amount of wheelchairs one maintainer maintenances.
 \end{description}
 
+<<<<<<< HEAD
+\chapter{List of illustrations}
+
+=======
 \listoffigures
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> origin/master
+>>>>>>> 7fb62506b76d67879cc8a837dc74ba6c733fd992
 %%%%%%%%% INFORMATION %%%%%%%%%%
 % \section{A Note About References}
 
